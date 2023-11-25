@@ -11,10 +11,9 @@ public class Gym {
 		super();
 	}
 	
-	public Gym(String gymId, String gymName, String gymInfo) {
+	public Gym(String gymId, String gymName) {
 		this.gymId = gymId;
 		this.gymName = gymName;
-		this.gymInfo = gymInfo;
 	}
 	
 	public String getGymId() {
