@@ -23,7 +23,7 @@
 	%>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="row-md-6">
 				<h3><%=gym.getGymName() %></h3>
 				<p><%=gym.getGymInfo() %>
 				<p> <b>헬스장 코드: </b><span class="badg badge-danger"><%=gym.getGymId() %></span>
