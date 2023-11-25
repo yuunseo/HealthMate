@@ -29,7 +29,8 @@
 			%>
 			<div class="col-md-4">
 				<h3><%=gym.getGymName() %></h3>
-				<h3><%=gym.getGymInfo() %></h3>
+				<p><%=gym.getGymInfo() %>
+				<p><a href="./gym.jsp?id=<%=gym.getGymId() %>" class="btn btn-secondary" role="button">상세 정보 &raquo;</a>
 			</div>
 			<%
 					}
