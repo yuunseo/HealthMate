@@ -16,4 +16,17 @@ public class GymRepository {
 	public ArrayList<Gym> getAllGyms(){
 		return listOfGyms;
 	}
+	
+	public Gym getGymById(String gymId) {
+		Gym gymById = null;
+		
+		for(int i=0; i<listOfGyms.size(); i++) {
+			Gym gym = listOfGyms.get(i);
+			if(gym != null && gym.getGymId() != null && gym.getGymId().equals(gymId)){
+				gymById = gym;
+				break;
+			}
+		}
+		return gymById;
+	}
 }
