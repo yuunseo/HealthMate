@@ -8,7 +8,7 @@
                     <a class="nav-link" href="./login.jsp">로그인</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./registerGym.jsp">헬스장 조회</a> 
+                    <a class="nav-link" href="./gyms.jsp">헬스장 조회</a> 
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./registerGym.jsp">헬스장 등록</a> 
