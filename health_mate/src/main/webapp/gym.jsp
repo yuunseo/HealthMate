@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ page import="dto.Gym" %>
+<%@ page import="dto.GymProduct" %>
 <jsp:useBean id="gymDAO" class="dao.GymRepository" scope="session"/>
 <!DOCTYPE html>
 <html>

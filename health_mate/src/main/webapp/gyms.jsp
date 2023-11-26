@@ -2,6 +2,7 @@
     pageEncoding="EUC-KR"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="dto.Gym" %>
+<%@ page import="dto.GymProduct" %>
 <jsp:useBean id="gymDAO" class="dao.GymRepository" scope="session"/>
 <!DOCTYPE html>
 <html>
