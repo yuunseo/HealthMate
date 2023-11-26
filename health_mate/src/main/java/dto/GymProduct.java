@@ -1,12 +1,24 @@
 package dto;
+import dto.Gym;
 
 public class GymProduct {
+	
+	private String gymId; //헬스장 ID(fk)
 	private String gymProductId; //헬스장 상품ID
 	private Integer period; //상품별 기간
 	private Integer unitPrice; //상품 가격
 	
 	public GymProduct() {
 		super();
+	}
+	
+	public String getGymId() {
+		gymId = new dto.Gym().getGymId();
+		return gymId;
+	}
+
+	public void setGymId(String gymId) {
+		this.gymId = gymId;
 	}
 
 	public String getGymProductId() {

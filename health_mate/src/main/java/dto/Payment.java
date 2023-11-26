@@ -1,6 +1,11 @@
 package dto;
+import dto.GymProduct;
+import dto.User;
 
 public class Payment {
+	
+	private String userID; //사용자 ID(fk)
+	private String gymProductId; //헬스장 상품ID(fk)
 	private String paymentId; //결제ID
 	private Integer paymenyPrice; //결제 금액
 	private String paymentDate; //결제 일자
@@ -9,6 +14,32 @@ public class Payment {
 	public Payment() {
 		super();
 	}
+
+	public String getUserID() {
+		userID = new dto.User().getUserID();
+		return userID;
+	}
+
+
+
+	public void setUserID(String userID) {
+		this.userID = userID;
+	}
+
+
+
+	public String getGymProductId() {
+		gymProductId = new dto.GymProduct().getGymProductId();
+		return gymProductId;
+	}
+
+
+
+	public void setGymProductId(String gymProductId) {
+		this.gymProductId = gymProductId;
+	}
+
+
 
 	public String getPaymentId() {
 		return paymentId;
