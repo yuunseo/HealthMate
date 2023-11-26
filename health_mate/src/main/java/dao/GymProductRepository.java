@@ -13,10 +13,13 @@ public class GymProductRepository {
 		GymProduct pt = new GymProduct("G0001","GP0001");
 		pt.setPeriod(12);
 		pt.setUnitPrice(990000);
+		pt.setAddress("서울시 동작구 상도동 123");
+		pt.setTime("오전6시 ~ 오후10시");
 		
 		GymProduct pt2 = new GymProduct("G0001","GP0002");
 		pt2.setPeriod(6);
 		pt2.setUnitPrice(450000);
+		pt2.setAddress("서울시 동작구 보라매로 5555");
 		
 		listOfGymProducts.add(pt);
 		listOfGymProducts.add(pt2);
