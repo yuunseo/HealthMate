@@ -9,6 +9,7 @@ public class GymProduct {
 	private Integer unitPrice; //상품 가격
 	private String time; //영업시간
 	private String address; //주소
+	private String filename; //이미지 파일명
 	
 	public GymProduct() {
 		super();
@@ -16,6 +17,18 @@ public class GymProduct {
 	
 	
 	
+	public String getFilename() {
+		return filename;
+	}
+
+
+
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+
+
+
 	public String getTime() {
 		return time;
 	}
