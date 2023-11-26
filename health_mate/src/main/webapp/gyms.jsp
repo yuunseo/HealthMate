@@ -53,8 +53,7 @@
 							GymProduct product = listOfGymProducts.get(j);
 				%>
 				<div class="col-md-4">
-					<h6><%=product.getUnitPrice() %>¿ø |</h6>
-					<h6><%=product.getPeriod() %>¿ù |</h6>
+					<h6><%=product.getGymId() %> | <%=product.getUnitPrice() %>¿ø</h6>
 				</div>
 				<%
 						}

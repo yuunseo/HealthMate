@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ page import="java.util.ArrayList" %>
 <%@ page import="dto.Gym" %>
 <%@ page import="dto.GymProduct" %>
 <jsp:useBean id="gymDAO" class="dao.GymRepository" scope="session"/>
+<jsp:useBean id="gymproductDAO" class="dao.GymProductRepository" scope="session"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,6 +45,7 @@
 	<%
 		String id = request.getParameter("id");
 		Gym gym = gymDAO.getGymById(id);
+		ArrayList<GymProduct> listOfGymProducts = gymproductDAO.getAllGymProducts();
 	%>
 	<div class="container">
 		<div class="row">
@@ -51,6 +54,19 @@
 				<p><%=gym.getGymInfo() %>
 				<p> <b>헬스장 코드: </b><span class="badg badge-danger"><%=gym.getGymId() %></span>
 				<p> <b>헬스장 상품</b>:
+				<%
+					for(int j=0; j<listOfGymProducts.size(); j++){
+						if(listOfGymProducts.get(j).getGymId().equals(gym.getGymId())){
+							GymProduct product = listOfGymProducts.get(j);
+				%>
+				<div class="row">
+					<h6><%=product.getUnitPrice() %>원 | <%=product.getPeriod() %>월 </h6>
+					<hr>
+				</div>
+				<%
+						}
+					}
+				%>
 			</div>
 		</div>
 		<div class="center">
