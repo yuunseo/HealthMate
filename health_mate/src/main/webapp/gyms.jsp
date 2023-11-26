@@ -4,6 +4,7 @@
 <%@ page import="dto.Gym" %>
 <%@ page import="dto.GymProduct" %>
 <jsp:useBean id="gymDAO" class="dao.GymRepository" scope="session"/>
+<jsp:useBean id="gymproductDAO" class="dao.GymProductRepository" scope="session"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +33,7 @@
 	<jsp:include page="menu.jsp"/>
 	<%
 		ArrayList<Gym> listOfGyms = gymDAO.getAllGyms();
+		ArrayList<GymProduct> listOfGymProducts = gymproductDAO.getAllGymProducts();
 	%>
 	<hr>
 	<div class="container" >
@@ -45,6 +47,20 @@
 					<h6><%=gym.getGymName() %></h6>
 					<h6><%=gym.getGymInfo() %></h6>
 				</div>
+				<%
+					for(int j=0; j<listOfGymProducts.size(); j++){
+						if(listOfGymProducts.get(j).getGymId().equals(gym.getGymId())){
+							GymProduct product = listOfGymProducts.get(j);
+				%>
+				<div class="col-md-4">
+					<h6><%=product.getUnitPrice() %>원 |</h6>
+					<h6><%=product.getPeriod() %>월 |</h6>
+				</div>
+				<%
+						}
+						
+					}
+				%>
 				<div align="right">
 					<p><a href="./gym.jsp?id=<%=gym.getGymId() %>" class="btn rounded-button ml-auto" role="button">상세 정보 &raquo;</a>
 				</div>

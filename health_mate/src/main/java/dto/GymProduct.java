@@ -12,8 +12,15 @@ public class GymProduct {
 		super();
 	}
 	
+	
+	
+	public GymProduct(String gymId, String gymProductId) {
+		super();
+		this.gymId = gymId;
+		this.gymProductId = gymProductId;
+	}
+
 	public String getGymId() {
-		gymId = new dto.Gym().getGymId();
 		return gymId;
 	}
 

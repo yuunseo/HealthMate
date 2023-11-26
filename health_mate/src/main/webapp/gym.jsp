@@ -42,7 +42,7 @@
 	</div>
 	<%
 		String id = request.getParameter("id");
-	Gym gym = gymDAO.getGymById(id);
+		Gym gym = gymDAO.getGymById(id);
 	%>
 	<div class="container">
 		<div class="row">
