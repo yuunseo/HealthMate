@@ -57,12 +57,15 @@
 		Gym gym = gymDAO.getGymById(id);
 		ArrayList<GymProduct> listOfGymProducts = gymproductDAO.getAllGymProducts();
 	%>
-	<div class="container">
+	<div class="container" align="center">
 		<div class="row">
 			<div class="row-md-6">
 				<h3><%=gym.getGymName() %></h3>
 				<p><%=gym.getGymInfo() %>
-				<p> <b>헬스장 상품</b>
+				<p> <b>[ 헬스장 상품 ]</b>
+			</div>
+		</div>
+		<div align="left">
 				<%
 					for(int j=0; j<listOfGymProducts.size(); j++){
 						if(listOfGymProducts.get(j).getGymId().equals(gym.getGymId())){
@@ -70,7 +73,9 @@
 				%>
 				<div class="col">
 					<p> <b>가격:</b> <%=product.getUnitPrice() %>원
-					<p> <b>기간:</b>  <%=product.getPeriod() %>월
+					<p> <b>기간:</b>  <%=product.getPeriod() %>개월
+					<p> <b>주소:</b> <%=product.getAddress() %>
+					<p> <b>운영 시간:</b> <%=product.getTime() %>
 					<br>
 					<input type="radio" name="product">
 					<hr>
@@ -80,9 +85,8 @@
 					}
 				%>
 			</div>
-		</div>
 		<div class="center">
-			<a href="#" class="btn rounded-purple-button" >헬스장 선택&raquo;</a>
+			<a href="#" class="btn rounded-purple-button" >헬스장 등록&raquo;</a>
 			<a href="./gyms.jsp" class="btn rounded-gray-button">헬스장 목록 &raquo;</a>
 		</div>
 		<hr>
