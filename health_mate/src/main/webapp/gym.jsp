@@ -61,6 +61,7 @@
 				%>
 				<div class="row">
 					<h6><%=product.getUnitPrice() %>¿ø | <%=product.getPeriod() %>¿ù </h6>
+					<input type="radio" name="product">
 					<hr>
 				</div>
 				<%
