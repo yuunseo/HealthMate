@@ -68,8 +68,10 @@
 						if(listOfGymProducts.get(j).getGymId().equals(gym.getGymId())){
 							GymProduct product = listOfGymProducts.get(j);
 				%>
-				<div class="row">
-					<h6><%=product.getUnitPrice() %>원 | <%=product.getPeriod() %>월 </h6>
+				<div class="col">
+					<p> <b>가격:</b> <%=product.getUnitPrice() %>원
+					<p> <b>기간:</b>  <%=product.getPeriod() %>월
+					<br>
 					<input type="radio" name="product">
 					<hr>
 				</div>
