@@ -16,7 +16,6 @@ public class Payment {
 	}
 
 	public String getUserID() {
-		userID = new dto.User().getUserID();
 		return userID;
 	}
 
@@ -29,7 +28,6 @@ public class Payment {
 
 
 	public String getGymProductId() {
-		gymProductId = new dto.GymProduct().getGymProductId();
 		return gymProductId;
 	}
 
