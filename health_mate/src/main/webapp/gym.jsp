@@ -31,16 +31,26 @@
 		    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
 		}
 		
+		.display1 {
+	        margin-top: 80px; /* 원하는 만큼의 위쪽 마진을 지정합니다. */
+	        margin-bottom: 5px; /* 원하는 만큼의 아래쪽 마진을 지정합니다. */
+	        font-size: 20px;
+	        font-weight: bold; /* 굵게 지정 */
+	    }
+	    .bottom_1{
+	    	margin-bottom: 50px; /* 원하는 만큼의 아래쪽 마진을 지정합니다. */
+	    	color: #808080; /* 텍스트 색상 설정 */
+	    }
+		
 </style>
 <meta charset="EUC-KR">
 <title>헬스장 상세 정보</title>
 </head>
 <body>
 	<jsp:include page="menu.jsp"/>
-	<div class="jumbotron">
-		<div class="container">
-			<h1 class="display-3">헬스장 정보</h1>
-		</div>
+	<div class="container">
+			<p class="display1">헬스장 정보
+			<p class="bottom_1"> 헬스장 정보를 확인해주세요.
 	</div>
 	<%
 		String id = request.getParameter("id");
