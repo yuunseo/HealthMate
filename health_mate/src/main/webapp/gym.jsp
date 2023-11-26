@@ -62,8 +62,7 @@
 			<div class="row-md-6">
 				<h3><%=gym.getGymName() %></h3>
 				<p><%=gym.getGymInfo() %>
-				<p> <b>헬스장 코드: </b><span class="badg badge-danger"><%=gym.getGymId() %></span>
-				<p> <b>헬스장 상품</b>:
+				<p> <b>헬스장 상품</b>
 				<%
 					for(int j=0; j<listOfGymProducts.size(); j++){
 						if(listOfGymProducts.get(j).getGymId().equals(gym.getGymId())){
