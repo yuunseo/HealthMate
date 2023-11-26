@@ -8,8 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="./resources/css/bootstrap.min.css"/>
 <style>
         .rounded-purple-button {
 		    border-radius: 50px; /* 버튼의 둥근 정도를 조절할 수 있는 값 */
@@ -71,14 +70,19 @@
 						if(listOfGymProducts.get(j).getGymId().equals(gym.getGymId())){
 							GymProduct product = listOfGymProducts.get(j);
 				%>
-				<div class="col">
-					<p> <b>가격:</b> <%=product.getUnitPrice() %>원
-					<p> <b>기간:</b>  <%=product.getPeriod() %>개월
-					<p> <b>주소:</b> <%=product.getAddress() %>
-					<p> <b>운영 시간:</b> <%=product.getTime() %>
-					<br>
-					<input type="radio" name="product">
-					<hr>
+				<div class="row">
+					<div>
+						<img src="./resources/images/<%=product.getFilename() %>" width="200" style="height:auto;">
+					</div>
+					<div class="col">
+						<p> <b>가격:</b> <%=product.getUnitPrice() %>원
+						<p> <b>기간:</b>  <%=product.getPeriod() %>개월
+						<p> <b>주소:</b> <%=product.getAddress() %>
+						<p> <b>운영 시간:</b> <%=product.getTime() %>
+						<br>
+						<input type="radio" name="product">
+						<hr>
+					</div>
 				</div>
 				<%
 						}
