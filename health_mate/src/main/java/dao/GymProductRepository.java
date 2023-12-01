@@ -11,6 +11,7 @@ public class GymProductRepository {
 	
 	public GymProductRepository() {
 		GymProduct pt = new GymProduct("G0001","GP0001");
+		pt.setGymProductName("12개월권 상품");
 		pt.setPeriod(12);
 		pt.setUnitPrice(990000);
 		pt.setAddress("서울시 동작구 상도동 123");
@@ -18,6 +19,7 @@ public class GymProductRepository {
 		pt.setFilename("GP0001.jpg");
 		
 		GymProduct pt2 = new GymProduct("G0001","GP0002");
+		pt2.setGymProductName("6개월권 상품");
 		pt2.setPeriod(6);
 		pt2.setUnitPrice(450000);
 		pt2.setAddress("서울시 동작구 보라매로 5555");
