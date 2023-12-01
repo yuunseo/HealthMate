@@ -57,7 +57,11 @@
 		ArrayList<GymProduct> listOfGymProducts = gymproductDAO.getAllGymProducts();
 	%>
 	<div class="container" align="center">
-		<div class="row">
+		<div class="center">
+			<div>
+				<img src="./resources/images/<%=gym.getFilename() %>" width="200" style="height:auto;">
+			</div>
+			<br>
 			<div class="row-md-6">
 				<h3><%=gym.getGymName() %></h3>
 				<p><%=gym.getGymInfo() %>
@@ -70,18 +74,18 @@
 						if(listOfGymProducts.get(j).getGymId().equals(gym.getGymId())){
 							GymProduct product = listOfGymProducts.get(j);
 				%>
+				<hr>
 				<div class="row">
 					<div>
 						<img src="./resources/images/<%=product.getFilename() %>" width="200" style="height:auto;">
 					</div>
 					<div class="col">
-						<p> <b>가격:</b> <%=product.getUnitPrice() %>원
-						<p> <b>기간:</b>  <%=product.getPeriod() %>개월
-						<p> <b>주소:</b> <%=product.getAddress() %>
-						<p> <b>운영 시간:</b> <%=product.getTime() %>
+						<p> <b>가격: </b> <%=product.getUnitPrice() %>원
+						<p> <b>기간: </b>  <%=product.getPeriod() %>개월
+						<p> <b>주소: </b> <%=product.getAddress() %>
+						<p> <b>운영 시간: </b> <%=product.getTime() %>
 						<br>
 						<input type="radio" name="product">
-						<hr>
 					</div>
 				</div>
 				<%

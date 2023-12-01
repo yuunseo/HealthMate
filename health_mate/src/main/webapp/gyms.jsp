@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css"/>
 <style>
         .section-divider {
-            border-bottom: 2px dashed #000; /* 점선 스타일 및 색상 설정 */
+            border-bottom: 2px dashed #a6a6a6; /* 점선 스타일 및 색상 설정 */
             margin-bottom: 10px; /* 단락 간격 조절을 위한 여분의 마진 추가 (선택사항) */
         }
         
@@ -25,17 +25,32 @@
 		    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
 		}
 		
+		.display1 {
+	        margin-top: 80px; /* 원하는 만큼의 위쪽 마진을 지정합니다. */
+	        margin-bottom: 5px; /* 원하는 만큼의 아래쪽 마진을 지정합니다. */
+	        font-size: 20px;
+	        font-weight: bold; /* 굵게 지정 */
+	    }
+	    .bottom_1{
+	    	margin-bottom: 50px; /* 원하는 만큼의 아래쪽 마진을 지정합니다. */
+	    	color: #808080; /* 텍스트 색상 설정 */
+	    }
+		
 </style>
 <meta charset="EUC-KR">
 <title>헬스장 목록</title>
 </head>
 <body>
 	<jsp:include page="menu.jsp"/>
+	<div class="container">
+			<p class="display1">헬스장 조회
+			<p class="bottom_1"> 현재 등록된 헬스장 목록을 조회할 수 있습니다.
+	</div>
 	<%
 		ArrayList<Gym> listOfGyms = gymDAO.getAllGyms();
 		ArrayList<GymProduct> listOfGymProducts = gymproductDAO.getAllGymProducts();
 	%>
-	<hr>
+	<br>
 	<div class="container" >
 		<div class="col" align="left">
 			<%
@@ -43,23 +58,30 @@
 					Gym gym = listOfGyms.get(i);
 			%>
 			<div class="section-divider">
-				<div class="col-md-4">
-					<h6><%=gym.getGymName() %></h6>
-					<h6><%=gym.getGymInfo() %></h6>
+				<div class="row">
+					<div>
+						<img src="./resources/images/<%=gym.getFilename() %>" width="200" style="height:auto;">
+					</div>
+					<div class="col">
+						<h3><%=gym.getGymName() %></h3>
+						<p><%=gym.getGymInfo() %>
+						<%
+							for(int j=0; j<listOfGymProducts.size(); j++){
+								if(listOfGymProducts.get(j).getGymId().equals(gym.getGymId())){
+									GymProduct product = listOfGymProducts.get(j);
+						%>
+						<div class="row-md-4">
+							<br>
+							<h6> <%=product.getGymProductName() %> | <%=product.getUnitPrice() %>원 | <%=product.getTime() %></h6>
+						</div>
+						<%
+								}
+								
+							}
+						%>
+					</div>
 				</div>
-				<%
-					for(int j=0; j<listOfGymProducts.size(); j++){
-						if(listOfGymProducts.get(j).getGymId().equals(gym.getGymId())){
-							GymProduct product = listOfGymProducts.get(j);
-				%>
-				<div class="col-md-4">
-					<h6><%=product.getGymId() %> | <%=product.getUnitPrice() %>원</h6>
-				</div>
-				<%
-						}
-						
-					}
-				%>
+				
 				<div align="right">
 					<p><a href="./gym.jsp?id=<%=gym.getGymId() %>" class="btn rounded-button ml-auto" role="button">상세 정보 &raquo;</a>
 				</div>
@@ -68,7 +90,7 @@
 					}
 			%>
 		</div>
-		<hr>
+		<br>
 	</div>
 	<jsp:include page="footer.jsp"/>
 </body>
