@@ -4,6 +4,7 @@ import dto.Gym;
 public class GymProduct {
 	
 	private String gymId; //헬스장 ID(fk)
+	private String gymProductName; //헬스장 상품명
 	private String gymProductId; //헬스장 상품ID
 	private Integer period; //상품별 기간
 	private Integer unitPrice; //상품 가격
@@ -17,6 +18,18 @@ public class GymProduct {
 	
 	
 	
+	public String getGymProductName() {
+		return gymProductName;
+	}
+
+
+
+	public void setGymProductName(String gymProductName) {
+		this.gymProductName = gymProductName;
+	}
+
+
+
 	public String getFilename() {
 		return filename;
 	}
