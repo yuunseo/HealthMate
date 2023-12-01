@@ -23,6 +23,7 @@ public class GymProductRepository {
 		pt2.setPeriod(6);
 		pt2.setUnitPrice(450000);
 		pt2.setAddress("서울시 동작구 보라매로 5555");
+		pt2.setTime("오전10시 ~ 오후10시");
 		pt2.setFilename("GP0002.jpg");
 		
 		listOfGymProducts.add(pt);
