@@ -6,6 +6,7 @@ public class Gym {
 	private String gymId; //헬스장 아이디
 	private String gymName; //헬스장 이름
 	private String gymInfo; //헬스장 정보
+	private String filename; //이미지 파일명
 	
 	public Gym() {
 		super();
@@ -16,6 +17,16 @@ public class Gym {
 		this.gymName = gymName;
 	}
 	
+	
+	
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+
 	public String getGymId() {
 		return gymId;
 	}
