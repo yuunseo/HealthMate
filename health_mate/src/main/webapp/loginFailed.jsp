@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -10,16 +10,16 @@
     <div class="jumbotron">
         <div class="container">
             <h1 class="text-center">Health Mate</h1>
-            <p class="text-center">ëª¨ë‘ì˜ í—¬ìŠ¤ í†µí•© í”Œëž«í¼</p>
+            <p class="text-center">¸ðµÎÀÇ Çï½º ÅëÇÕ ÇÃ·§Æû</p>
         </div>
     </div>
     
     <div class="container">
         <div class="alert alert-danger" role="alert">
-            <h4 class="alert-heading">ë¡œê·¸ì¸ ì‹¤íŒ¨</h4>
-            <p>ID í˜¹ì€ ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë ¸ìŠµë‹ˆë‹¤.</p>
+            <h4 class="alert-heading">·Î±×ÀÎ ½ÇÆÐ</h4>
+            <p>ID È¤Àº ºñ¹Ð¹øÈ£°¡ Æ²·È½À´Ï´Ù.</p>
             <hr>
-            <p class="mb-0">ë¡œê·¸ì¸ì„ ë‹¤ì‹œ ì‹œë„í•˜ê±°ë‚˜ ê³„ì •ì´ ì—†ì„ ì‹œ <a href="register.jsp">íšŒì›ê°€ìž…</a>í•´ì£¼ì„¸ìš”.</p>
+            <p class="mb-0">·Î±×ÀÎÀ» ´Ù½Ã ½ÃµµÇÏ°Å³ª °èÁ¤ÀÌ ¾øÀ» ½Ã <a href="register.jsp">È¸¿ø°¡ÀÔ</a>ÇØÁÖ¼¼¿ä.</p>
         </div>
     </div>
 

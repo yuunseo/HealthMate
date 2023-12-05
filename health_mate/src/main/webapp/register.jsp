@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,26 +17,26 @@
             var passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,}$/;
 
                 if (age <= 0) {
-                    alert("유효한 나이를 입력해주세요.");
+                    alert("��ȿ�� ���̸� �Է����ּ���.");
                     return false;
                 }
             if (userID.length < 6) {
-                alert("ID는 최소 6자리 이상이어야합니다.");
+                alert("ID�� �ּ� 6�ڸ� �̻��̾���մϴ�.");
                 return false;
             }
 
             /* if (password.length < 6) {
-                alert("비밀번호는 최소 6자리 이상이어야합니다.");
+                alert("��й�ȣ�� �ּ� 6�ڸ� �̻��̾���մϴ�.");
                 return false;
             } */
 
             if (!passwordRegex.test(password)) {
-                alert("비밀번호는 영문자, 숫자, 특수문자를 포함해 8자리 이상이어야 합니다.");
+                alert("��й�ȣ�� ������, ����, Ư�����ڸ� ������ 8�ڸ� �̻��̾�� �մϴ�.");
                 return false;
             }
 
             if (password !== confirmPassword) {
-                alert("비밀번호가 틀립니다.");
+                alert("��й�ȣ�� Ʋ���ϴ�.");
                 return false;
             }
 
@@ -49,8 +49,8 @@
 	<jsp:include page="menu.jsp" />
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="text-center">회원가입</h1>
-			<p class="text-center">헬스 메이트에 오신 것을 환영합니다!</p>
+			<h1 class="text-center">ȸ������</h1>
+			<p class="text-center">�ｺ ����Ʈ�� ���� ���� ȯ���մϴ�!</p>
 		</div>
 	</div>
 	<div class="container" align="center">
@@ -100,12 +100,12 @@
 					<div class="form-check">
 						<input type="checkbox" class="form-check-input"
 							id="registerGymCheck" name="registerGym"> <label
-							class="form-check-label" for="registerGymCheck">매장 관리가
-							목적입니까?</label>
+							class="form-check-label" for="registerGymCheck">���� ������
+							�����Դϱ�?</label>
 					</div>
 				</div>
 				<button class="btn btn-lg btn-primary btn-block" type="button"
-					onclick="validateForm()">회원가입</button>
+					onclick="validateForm()">ȸ������</button>
 			</form>
 		</div>
 	</div>

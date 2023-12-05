@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import="com.oreilly.servlet.*" %>
 <%@ page import="com.oreilly.servlet.multipart.*" %>
 <%@ page import="java.util.*" %>
@@ -10,12 +10,12 @@
 request.setCharacterEncoding("UTF-8");
 
 String filename = "";
-String realFolder = application.getRealPath("/upload");	//ì ˆëŒ€ ê²½ë¡œ
+String realFolder = application.getRealPath("/upload");	//Àı´ë °æ·Î
 
-System.out.println(realFolder);	//ì ˆëŒ€ ê²½ë¡œ í™•ì¸(ì½˜ì†”ì—ì„œ í™•ì¸ê°€ëŠ¥)
+System.out.println(realFolder);	//Àı´ë °æ·Î È®ÀÎ(ÄÜ¼Ö¿¡¼­ È®ÀÎ°¡´É)
 
-int maxSize = 5*1024*1024;	//ìµœëŒ€ ì—…ë¡œë“œë  íŒŒì¼ì˜ í¬ê¸° 5MB
-String encType = "utf-8";	//ì¸ì½”ë”© ìœ í˜•
+int maxSize = 5*1024*1024;	//ÃÖ´ë ¾÷·ÎµåµÉ ÆÄÀÏÀÇ Å©±â 5MB
+String encType = "utf-8";	//ÀÎÄÚµù À¯Çü
 
 MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
 
