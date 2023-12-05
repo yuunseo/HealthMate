@@ -1,4 +1,4 @@
-<%@ page contentType = "text/html; charset=utf-8" %>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <nav class="navbar navbar-expand navbar-white bg-white custom-navbar-border">
     <div class="container">
         <a class="navbar-brand" href="welcome.jsp" style="color: #8E6FFF;">HealthMate</a>

@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=utf-8"%>
+<%-- <%@ page contentType="text/html; charset=UTF-8"%> --%>
+<%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="dto.User"%>
 <%@ page import="dto.Gym"%>
@@ -12,54 +13,70 @@
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
 <style>
 .section-divider {
-	border-bottom: 1px dashed #a6a6a6; /* ì ì„  ìŠ¤íƒ€ì¼ ë° ìƒ‰ìƒ ì„¤ì • */
-	padding: 20px; /* ì—¬ë°± */
+	border-bottom: 1px dashed #a6a6a6; /* Á¡¼± ½ºÅ¸ÀÏ ¹× »ö»ó ¼³Á¤ */
+	padding: 20px; /* ¿©¹é */
 }
 
 .rounded-button {
-	border-radius: 50px; /* ë²„íŠ¼ì˜ ë‘¥ê·¼ ì •ë„ë¥¼ ì¡°ì ˆí•  ìˆ˜ ìžˆëŠ” ê°’ */
-	padding: 10px 20px; /* ë²„íŠ¼ì˜ ë‚´ìš©ê³¼ ê²½ê³„ ì‚¬ì´ì˜ ì—¬ë°±ì„ ì„¤ì • (ì„ íƒì‚¬í•­) */
-	/* ì¶”ê°€ì ì¸ ìŠ¤íƒ€ì¼ ì„¤ì • (ì„ íƒì‚¬í•­) */
-	background-color: #8E6FFF; /* ë°°ê²½ìƒ‰ ì„¤ì • */
-	color: #fff; /* í…ìŠ¤íŠ¸ ìƒ‰ìƒ ì„¤ì • */
-	border: none; /* í…Œë‘ë¦¬ ì œê±° */
-	cursor: pointer; /* ë§ˆìš°ìŠ¤ ì»¤ì„œë¥¼ í¬ì¸í„°ë¡œ ë³€ê²½ */
+	border-radius: 50px; /* ¹öÆ°ÀÇ µÕ±Ù Á¤µµ¸¦ Á¶ÀýÇÒ ¼ö ÀÖ´Â °ª */
+	padding: 10px 20px; /* ¹öÆ°ÀÇ ³»¿ë°ú °æ°è »çÀÌÀÇ ¿©¹éÀ» ¼³Á¤ (¼±ÅÃ»çÇ×) */
+	/* Ãß°¡ÀûÀÎ ½ºÅ¸ÀÏ ¼³Á¤ (¼±ÅÃ»çÇ×) */
+	background-color: #8E6FFF; /* ¹è°æ»ö ¼³Á¤ */
+	color: #fff; /* ÅØ½ºÆ® »ö»ó ¼³Á¤ */
+	border: none; /* Å×µÎ¸® Á¦°Å */
+	cursor: pointer; /* ¸¶¿ì½º Ä¿¼­¸¦ Æ÷ÀÎÅÍ·Î º¯°æ */
 }
 
 .display1 {
-	margin-top: 80px; /* ì›í•˜ëŠ” ë§Œí¼ì˜ ìœ„ìª½ ë§ˆì§„ì„ ì§€ì •í•©ë‹ˆë‹¤. */
-	margin-bottom: 5px; /* ì›í•˜ëŠ” ë§Œí¼ì˜ ì•„ëž˜ìª½ ë§ˆì§„ì„ ì§€ì •í•©ë‹ˆë‹¤. */
+	margin-top: 80px; /* ¿øÇÏ´Â ¸¸Å­ÀÇ À§ÂÊ ¸¶ÁøÀ» ÁöÁ¤ÇÕ´Ï´Ù. */
+	margin-bottom: 5px; /* ¿øÇÏ´Â ¸¸Å­ÀÇ ¾Æ·¡ÂÊ ¸¶ÁøÀ» ÁöÁ¤ÇÕ´Ï´Ù. */
 	font-size: 20px;
-	font-weight: bold; /* êµµê²Œ ì§€ì • */
+	font-weight: bold; /* ±½°Ô ÁöÁ¤ */
 }
 
 .bottom_1 {
-	margin-bottom: 50px; /* ì›í•˜ëŠ” ë§Œí¼ì˜ ì•„ëž˜ìª½ ë§ˆì§„ì„ ì§€ì •í•©ë‹ˆë‹¤. */
-	color: #808080; /* í…ìŠ¤íŠ¸ ìƒ‰ìƒ ì„¤ì • */
+	margin-bottom: 50px; /* ¿øÇÏ´Â ¸¸Å­ÀÇ ¾Æ·¡ÂÊ ¸¶ÁøÀ» ÁöÁ¤ÇÕ´Ï´Ù. */
+	color: #808080; /* ÅØ½ºÆ® »ö»ó ¼³Á¤ */
 }
-.section-container{
-align-items:center;
-column-gap:10px;
+
+.section-container {
+	align-items: center;
+	column-gap: 10px;
 }
 </style>
 <meta charset="EUC-KR">
-<title>ë§¤ìž¥ ê´€ë¦¬</title>
+<title>¸ÅÀå °ü¸®</title>
 </head>
-<%
-User userSession = (User) session.getAttribute("user");
-String ownerID = userSession.getUserID(); //ë¡œê·¸ì¸ëœ íšŒì›ì•„ì´ë”” ë°›ì•„ì˜¤ê¸°
-boolean isOwner = userSession.isRegisterGym(); //ê´€ë¦¬ìž íšŒì›ì¸ì§€ í™•ì¸
-%>
-
-
 <body>
 	<jsp:include page="menu.jsp" />
 	<%
+	String ownerID = "";
+	boolean isOwner = false; //°ü¸®ÀÚ È¸¿øÀÎÁö È®ÀÎ À§ÇÑ º¯¼ö(default:false)
+	User userSession = (User) session.getAttribute("user");
+	if (userSession == null) {
+		/* response.sendRedirect("login.jsp"); */ //·Î±×ÀÎ ÆäÀÌÁö·Î ¹Ù·Î ÀÌµ¿
+	%>
+	<div class = "container" style="padding:20px;">
+	<div class="alert alert-danger" role="alert">
+		<h4 class="alert-heading">·Î±×ÀÎÀÌ ÇÊ¿äÇÑ ¼­ºñ½º</h4>
+		<p>·Î±×ÀÎÀÌ ÇÊ¿äÇÑ ¼­ºñ½ºÀÔ´Ï´Ù</p>
+		<hr>
+		<p class="mb-0">
+			<a href="login.jsp">·Î±×ÀÎ</a>À» ½ÃµµÇÏ°Å³ª °èÁ¤ÀÌ ¾øÀ» ½Ã <a href="register.jsp">È¸¿ø°¡ÀÔ</a>ÇØÁÖ¼¼¿ä.
+		</p>
+	</div>
+	</div>
+	
+	<%
+	} else {
+	ownerID = userSession.getUserID(); //·Î±×ÀÎµÈ È¸¿ø¾ÆÀÌµð ¹Þ¾Æ¿À±â	
+	isOwner = userSession.isRegisterGym(); //°ü¸®ÀÚ È¸¿øÀÎÁö È®ÀÎ
+
 	if (!isOwner) {
 	%>
 	<div class="container">
-		<p class="display1">ê´€ë¦¬ìž ì „ìš© íŽ˜ì´ì§€
-		<p>ê´€ë¦¬ìž ê³„ì •ìœ¼ë¡œ ë¡œê·¸ì¸ í•´ì£¼ì„¸ìš”.
+		<p class="display1">°ü¸®ÀÚ Àü¿ë ÆäÀÌÁö
+		<p>°ü¸®ÀÚ °èÁ¤À¸·Î ·Î±×ÀÎ ÇØÁÖ¼¼¿ä.
 	</div>
 	<%
 	} else {
@@ -69,16 +86,16 @@ boolean isOwner = userSession.isRegisterGym(); //ê´€ë¦¬ìž íšŒì›ì¸ì§€ í™•ì¸
 
 	GymProductRepository gymProductDao = GymProductRepository.getInstance();
 	ArrayList<GymProduct> listOfGymProducts = gymProductDao.getAllGymProducts();
-	
-	String realFolder = application.getRealPath("/upload");	//ì ˆëŒ€ ê²½ë¡œ
-	System.out.println(realFolder);	//ì ˆëŒ€ ê²½ë¡œ í™•ì¸(ì½˜ì†”ì—ì„œ í™•ì¸ê°€ëŠ¥)
+
+	String realFolder = application.getRealPath("/upload"); //Àý´ë °æ·Î
+	System.out.println(realFolder); //Àý´ë °æ·Î È®ÀÎ(ÄÜ¼Ö¿¡¼­ È®ÀÎ°¡´É)
 	%>
 	<div class="container">
-		<p class="display1">ë§¤ìž¥ ê´€ë¦¬
-		<p class="bottom_1">ë§¤ìž¥ì„ ìƒˆë¡œ ë“±ë¡í•˜ê±°ë‚˜ ë‚´ ë§¤ìž¥ì„ ì¡°íšŒ ë° ê´€ë¦¬í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+		<p class="display1">¸ÅÀå °ü¸®
+		<p class="bottom_1">¸ÅÀåÀ» »õ·Î µî·ÏÇÏ°Å³ª ³» ¸ÅÀåÀ» Á¶È¸ ¹× °ü¸®ÇÒ ¼ö ÀÖ½À´Ï´Ù.
 		<p>
 			<a href="./addGym.jsp" class="btn rounded-button ml-auto"
-				role="button">+ ë§¤ìž¥ ë“±ë¡</a>
+				role="button">+ ¸ÅÀå µî·Ï</a>
 		<hr>
 	</div>
 
@@ -101,12 +118,12 @@ boolean isOwner = userSession.isRegisterGym(); //ê´€ë¦¬ìž íšŒì›ì¸ì§€ í™•ì¸
 						<p><%=gym.getAddress()%>
 						<p><%=gym.getTime()%>
 					</div>
-				<div align="right">
-					<p>
-						<a href="./manageGymProduct.jsp?id=<%=gym.getGymId()%>"
-							class="btn rounded-button ml-auto" role="button">ìƒí’ˆ ê´€ë¦¬
-							&raquo;</a>
-				</div>
+					<div align="right">
+						<p>
+							<a href="./manageGymProduct.jsp?id=<%=gym.getGymId()%>"
+								class="btn rounded-button ml-auto" role="button">»óÇ° °ü¸®
+								&raquo;</a>
+					</div>
 				</div>
 
 
@@ -118,6 +135,7 @@ boolean isOwner = userSession.isRegisterGym(); //ê´€ë¦¬ìž íšŒì›ì¸ì§€ í™•ì¸
 		<br>
 	</div>
 	<%
+	}
 	}
 	%>
 	<jsp:include page="footer.jsp" />

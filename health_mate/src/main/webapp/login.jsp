@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="javax.servlet.http.HttpSession" %>
 
 <!DOCTYPE html>
