@@ -11,7 +11,7 @@
                     <a class="nav-link" href="./gyms.jsp" style="color: #000000;">헬스장 조회</a> 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./registerGym.jsp" style="color: #000000;">헬스장 등록</a> 
+                    <a class="nav-link" href="./manageGym.jsp" style="color: #000000;">매장 관리</a> 
                 </li>
             </ul>
         </div>

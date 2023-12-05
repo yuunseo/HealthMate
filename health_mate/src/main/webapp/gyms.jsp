@@ -3,8 +3,10 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="dto.Gym" %>
 <%@ page import="dto.GymProduct" %>
-<jsp:useBean id="gymDAO" class="dao.GymRepository" scope="session"/>
-<jsp:useBean id="gymproductDAO" class="dao.GymProductRepository" scope="session"/>
+<%@ page import="dao.GymRepository"%>
+<%@ page import="dao.GymProductRepository"%>
+<%-- <jsp:useBean id="gymDAO" class="dao.GymRepository" scope="session"/>
+<jsp:useBean id="gymproductDAO" class="dao.GymProductRepository" scope="session"/> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,8 +49,11 @@
 			<p class="bottom_1"> 현재 등록된 헬스장 목록을 조회할 수 있습니다.
 	</div>
 	<%
-		ArrayList<Gym> listOfGyms = gymDAO.getAllGyms();
-		ArrayList<GymProduct> listOfGymProducts = gymproductDAO.getAllGymProducts();
+	GymRepository gymDao = GymRepository.getInstance();
+	ArrayList<Gym> listOfGyms = gymDao.getAllGyms();
+
+	GymProductRepository gymProductDao = GymProductRepository.getInstance();
+	ArrayList<GymProduct> listOfGymProducts = gymProductDao.getAllGymProducts();
 	%>
 	<br>
 	<div class="container" >
@@ -72,7 +77,7 @@
 						%>
 						<div class="row-md-4">
 							<br>
-							<h6> <%=product.getGymProductName() %> | <%=product.getUnitPrice() %>원 | <%=product.getTime() %></h6>
+							<h6> <%=product.getGymProductName() %> | <%=product.getUnitPrice() %>원</h6>
 						</div>
 						<%
 								}

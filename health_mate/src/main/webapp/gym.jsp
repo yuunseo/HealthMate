@@ -65,6 +65,8 @@
 			<div class="row-md-6">
 				<h3><%=gym.getGymName() %></h3>
 				<p><%=gym.getGymInfo() %>
+				<p> <b>주소 | </b> <%=gym.getAddress() %>
+				<p> <b>운영 시간 | </b> <%=gym.getTime() %>
 				<p> <b>[ 헬스장 상품 ]</b>
 			</div>
 		</div>
@@ -82,8 +84,7 @@
 					<div class="col">
 						<p> <b>가격: </b> <%=product.getUnitPrice() %>원
 						<p> <b>기간: </b>  <%=product.getPeriod() %>개월
-						<p> <b>주소: </b> <%=product.getAddress() %>
-						<p> <b>운영 시간: </b> <%=product.getTime() %>
+						
 						<br>
 						<input type="radio" name="product">
 					</div>
@@ -94,7 +95,7 @@
 				%>
 			</div>
 		<div class="center">
-			<a href="#" class="btn rounded-purple-button" >헬스장 등록&raquo;</a>
+			<a href="#" class="btn rounded-purple-button" >상품 구매 &raquo;</a>
 			<a href="./gyms.jsp" class="btn rounded-gray-button">헬스장 목록 &raquo;</a>
 		</div>
 		<hr>

@@ -8,8 +8,7 @@ public class GymProduct {
 	private String gymProductId; //헬스장 상품ID
 	private Integer period; //상품별 기간
 	private Integer unitPrice; //상품 가격
-	private String time; //영업시간
-	private String address; //주소
+
 	private String filename; //이미지 파일명
 	
 	public GymProduct() {
@@ -39,31 +38,6 @@ public class GymProduct {
 	public void setFilename(String filename) {
 		this.filename = filename;
 	}
-
-
-
-	public String getTime() {
-		return time;
-	}
-
-
-
-	public void setTime(String time) {
-		this.time = time;
-	}
-
-
-
-	public String getAddress() {
-		return address;
-	}
-
-
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
 
 
 	public GymProduct(String gymId, String gymProductId) {

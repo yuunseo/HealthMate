@@ -23,7 +23,7 @@
     newUser.setPassword(password); 
     newUser.setRegisterGym(registerGym);
 
-    dao.addProduct(newUser);
+    dao.addUser(newUser);
 
     response.sendRedirect("login.jsp");
 %>
