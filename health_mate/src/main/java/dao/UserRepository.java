@@ -30,7 +30,7 @@ public class UserRepository {
 		return userById;
 	}
 	
-	public void addProduct(User user) {
+	public void addUser(User user) {
 		listOfUsers.add(user);
 	}
 

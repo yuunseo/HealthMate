@@ -1,9 +1,10 @@
-
-<%@ page contentType = "text/html; charset=utf-8" %>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page import="java.util.Date" %>
 <%@ page import="javax.servlet.http.HttpSession" %>
 <%@ page import="dto.User" %>
 <html>
 <head>
+<meta charset="EUC-KR">
 <link rel = "stylesheet"
 	href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <title>LoginSuccessed</title>
@@ -14,7 +15,7 @@
 	<div class = "jumbotron">
 		<div class = "container">
 			<h1 class = "text-center">Health Mate</h1>
-			<p class = "text-center">ëª¨ë‘ì˜ í—¬ìŠ¤ í†µí•© í”Œëž«í¼</p>
+			<p class = "text-center">¸ðµÎÀÇ Çï½º ÅëÇÕ ÇÃ·§Æû</p>
 		</div>
 	</div>
 	<main role = "main">
@@ -29,15 +30,35 @@
 	                } else {
 	            %>
 	            <div class="alert alert-danger" role="alert">
-		            <h4 class="alert-heading">ë¡œê·¸ì¸ì´ í•„ìš”í•œ ì„œë¹„ìŠ¤</h4>
-		            <p>ë¡œê·¸ì¸ì´ í•„ìš”í•œ ì„œë¹„ìŠ¤ìž…ë‹ˆë‹¤</p>
+		            <h4 class="alert-heading">·Î±×ÀÎÀÌ ÇÊ¿äÇÑ ¼­ºñ½º</h4>
+		            <p>·Î±×ÀÎÀÌ ÇÊ¿äÇÑ ¼­ºñ½ºÀÔ´Ï´Ù</p>
 		            <hr>
-		            <p class="mb-0"><a href="login.jsp">ë¡œê·¸ì¸</a>ì„ ì‹œë„í•˜ê±°ë‚˜ ê³„ì •ì´ ì—†ì„ ì‹œ <a href="register.jsp">íšŒì›ê°€ìž…</a>í•´ì£¼ì„¸ìš”.</p>
+		            <p class="mb-0"><a href="login.jsp">·Î±×ÀÎ</a>À» ½ÃµµÇÏ°Å³ª °èÁ¤ÀÌ ¾øÀ» ½Ã <a href="register.jsp">È¸¿ø°¡ÀÔ</a>ÇØÁÖ¼¼¿ä.</p>
 		        </div>
 	            <%
 	                }	
 	            %>	
 			</div>
+		</div>
+	</div>
+	<div class = "container">
+		<div class = "text-center">
+			<%
+				response.setIntHeader("Refresh", 5);
+				Date day = new java.util.Date();
+				String am_pm;
+				int hour = day.getHours();
+				int minute = day.getMinutes();
+				int second = day.getSeconds();
+				if( hour/12 == 0){
+					am_pm = "AM";
+				}else{
+					am_pm="PM";
+					hour = hour-12;
+				}
+				String CT = hour + ":" + minute + ":" + second + " " + am_pm;
+				out.println("ÇöÀç Á¢¼Ó ½Ã°¢: " + CT + "\n");
+			%>
 		</div>
 	</div>
 	</main>

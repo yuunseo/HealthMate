@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"%>
+<%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import="javax.servlet.http.HttpSession" %>
 
 <!DOCTYPE html>
@@ -13,15 +13,16 @@
 	<div class = "jumbotron">
 		<div class = "container">
 			<h1 class = "text-center">Health Mate</h1>
-			<p class = "text-center">К╙╗К▒░Л²≤ М≈╛Л┼╓ М├╣М∙╘ М■▄К·╚М▐╪</p>
+			<p class = "text-center">╦П╣нюг гО╫╨ еКгу гц╥╖фШ</p>
 		</div>
 	</div>
 	<div class="container" align="center">
 		<div class="col-md-4 col-md-offset-4">
 			<%
-                HttpSession loginSession = request.getSession(false);
+                //HttpSession loginSession = request.getSession(false);
+			HttpSession loginSession = request.getSession();
                 if (loginSession != null && loginSession.getAttribute("user") != null) {
-                    out.println("<div class='alert alert-warning'>Л²╢К╞╦ К║°Й╥╦Л²╦М∙° Л┐│М┐°Л·┘К▀┬К▀╓.</div>");
+                    out.println("<div class='alert alert-warning'>юл╧л ╥н╠вюнгя ╩Себют╢о╢ы.</div>");
                 } else {
             %>
 			
@@ -34,8 +35,8 @@
 			        <label for="inputPassword" class="sr-only">Password</label>
 			        <input type="password" class="form-control" name="j_password" placeholder="Password" required>
 			    </div>
-			    <button class="btn btn-lg btn-success btn-block" type="submit" style="background-color: #8E6FFF;">К║°Й╥╦Л²╦</button>
-			    <a href="register.jsp" class="btn btn-link">М ▄Л⌡░Й╟─Л·┘</a>
+			    <button class="btn btn-lg btn-success btn-block" type="submit" style="background-color: #8E6FFF;">╥н╠вюн</button>
+			    <a href="register.jsp" class="btn btn-link">х╦©Ь╟║ют</a>
 			</form>
 			</form>
 			<% } %>

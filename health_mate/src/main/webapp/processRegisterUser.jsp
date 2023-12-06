@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import="dto.User" %>
 <%@ page import="dao.UserRepository" %>
 <% 
@@ -23,7 +23,7 @@
     newUser.setPassword(password); 
     newUser.setRegisterGym(registerGym);
 
-    dao.addProduct(newUser);
+    dao.addUser(newUser);
 
     response.sendRedirect("login.jsp");
 %>

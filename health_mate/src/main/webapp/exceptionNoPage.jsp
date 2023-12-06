@@ -1,18 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"%>
+<%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <html>
 <head>
 <link rel = "stylesheet" href="./resources/css/bootstrap.min.css"/>
-<title>íŽ˜ì´ì§€ ì˜¤ë¥˜</title>
+<title>ÆäÀÌÁö ¿À·ù</title>
 </head>
 <body>
 	<jsp:include page="menu.jsp"/>
 	<div class = "jumbotron">
 		<div class="container">
-			<h2 class="alert alert-danger">ìš”ì²­í•˜ì‹  íŽ˜ì´ì§€ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.</h2>
+			<h2 class="alert alert-danger">¿äÃ»ÇÏ½Å ÆäÀÌÁö¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.</h2>
 		</div>
 	</div>
 	<div class = "container">
-		<p> <a href="welcome.jsp" class="btn btn-secondary">í™ˆìœ¼ë¡œ &raquo;</a>
+		<p> <a href="welcome.jsp" class="btn btn-secondary">È¨À¸·Î &raquo;</a>
 	</div>
 </body>
 </html>
