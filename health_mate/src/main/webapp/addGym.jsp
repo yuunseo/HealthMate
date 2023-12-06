@@ -1,61 +1,62 @@
+
 <%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>%>
 <html>
 <head>
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
 <script type="text/javascript" src="./resources/js/validation.js"></script>
-<title>¸ÅÀå µî·Ï</title>
+<title>ë§¤ìž¥ ë“±ë¡</title>
 </head>
 <body>
 	<jsp:include page="menu.jsp" />
 	<div class="container">
-		<h1 class="display1">¸ÅÀå µî·Ï</h1>
-		<p class="bottom_1">Çï½º ¸ÞÀÌÆ®¿¡ ³» ¸ÅÀåÀ» µî·ÏÇÏ¿© ÆíÇÏ°Ô °ü¸®ÇØ º¸¼¼¿ä!</p>
+		<h1 class="display1">ë§¤ìž¥ ë“±ë¡</h1>
+		<p class="bottom_1">í—¬ìŠ¤ ë©”ì´íŠ¸ì— ë‚´ ë§¤ìž¥ì„ ë“±ë¡í•˜ì—¬ íŽ¸í•˜ê²Œ ê´€ë¦¬í•´ ë³´ì„¸ìš”!</p>
 	</div>
 	<div class="container" align="left">
 		<form name="newGym" action="./processAddGym.jsp"
 			class="form-horizontal" method="post" enctype="multipart/form-data">
 			<div class="form-group row">
-				<label class="col-sm-2">¸ÅÀåÄÚµå</label>
+				<label class="col-sm-2">ë§¤ìž¥ì½”ë“œ</label>
 				<div class="col-sm-3">
 					<input type="text" id="gymId" name="gymId" class="form-control">
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-2">¸ÅÀå¸í</label>
+				<label class="col-sm-2">ë§¤ìž¥ëª…</label>
 				<div class="col-sm-3">
 					<input type="text" id="gymName" name="gymName" class="form-control">
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-2">¸ÅÀå ¼Ò°³</label>
+				<label class="col-sm-2">ë§¤ìž¥ ì†Œê°œ</label>
 				<div class="col-sm-5">
 					<textarea name="description" cols="50" rows="2"
 						class="form-control"></textarea>
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-2">¿µ¾÷½Ã°£</label>
+				<label class="col-sm-2">ì˜ì—…ì‹œê°„</label>
 				<div class="col-sm-3">
 					<input type="text" id="time" name="time" class="form-control" placeholder="00:00 ~ 00:00">
 				</div>
 			</div>
 
 			<div class="form-group row">
-				<label class="col-sm-2">ÁÖ¼Ò</label>
+				<label class="col-sm-2">ì£¼ì†Œ</label>
 				<div class="col-sm-3">
 					<input type="text" id="address" name="address" class="form-control">
 				</div>
 			</div>
 
 			<div class="form-group row">
-				<label class="col-sm-2">»çÁø</label>
+				<label class="col-sm-2">ì‚¬ì§„</label>
 				<div class="col-sm-5">
 					<input type="file" name="gymImage" class="form-control">
 				</div>
 			</div>
 			<div class="form-group row">
 				<div class="col-sm-offset-2 col-sm-10 ">
-					<button type="button" class="btn btn-primary" onclick="CheckAddGym()">µî·Ï</button>
+					<button type="button" class="btn btn-primary" onclick="CheckAddGym()">ë“±ë¡</button>
 				</div>
 			</div>
 		</form>
@@ -63,25 +64,25 @@
 </body>
 <style type="text/css">
 .rounded-button {
-	border-radius: 50px; /* ¹öÆ°ÀÇ µÕ±Ù Á¤µµ¸¦ Á¶ÀýÇÒ ¼ö ÀÖ´Â °ª */
-	padding: 10px 20px; /* ¹öÆ°ÀÇ ³»¿ë°ú °æ°è »çÀÌÀÇ ¿©¹éÀ» ¼³Á¤ (¼±ÅÃ»çÇ×) */
-	/* Ãß°¡ÀûÀÎ ½ºÅ¸ÀÏ ¼³Á¤ (¼±ÅÃ»çÇ×) */
-	background-color: #8E6FFF; /* ¹è°æ»ö ¼³Á¤ */
-	color: #fff; /* ÅØ½ºÆ® »ö»ó ¼³Á¤ */
-	border: none; /* Å×µÎ¸® Á¦°Å */
-	cursor: pointer; /* ¸¶¿ì½º Ä¿¼­¸¦ Æ÷ÀÎÅÍ·Î º¯°æ */
+	border-radius: 50px; /* ë²„íŠ¼ì˜ ë‘¥ê·¼ ì •ë„ë¥¼ ì¡°ì ˆí•  ìˆ˜ ìžˆëŠ” ê°’ */
+	padding: 10px 20px; /* ë²„íŠ¼ì˜ ë‚´ìš©ê³¼ ê²½ê³„ ì‚¬ì´ì˜ ì—¬ë°±ì„ ì„¤ì • (ì„ íƒì‚¬í•­) */
+	/* ì¶”ê°€ì ì¸ ìŠ¤íƒ€ì¼ ì„¤ì • (ì„ íƒì‚¬í•­) */
+	background-color: #8E6FFF; /* ë°°ê²½ìƒ‰ ì„¤ì • */
+	color: #fff; /* í…ìŠ¤íŠ¸ ìƒ‰ìƒ ì„¤ì • */
+	border: none; /* í…Œë‘ë¦¬ ì œê±° */
+	cursor: pointer; /* ë§ˆìš°ìŠ¤ ì»¤ì„œë¥¼ í¬ì¸í„°ë¡œ ë³€ê²½ */
 }
 
 .display1 {
-	margin-top: 80px; /* ¿øÇÏ´Â ¸¸Å­ÀÇ À§ÂÊ ¸¶ÁøÀ» ÁöÁ¤ÇÕ´Ï´Ù. */
-	margin-bottom: 5px; /* ¿øÇÏ´Â ¸¸Å­ÀÇ ¾Æ·¡ÂÊ ¸¶ÁøÀ» ÁöÁ¤ÇÕ´Ï´Ù. */
+	margin-top: 80px; /* ì›í•˜ëŠ” ë§Œí¼ì˜ ìœ„ìª½ ë§ˆì§„ì„ ì§€ì •í•©ë‹ˆë‹¤. */
+	margin-bottom: 5px; /* ì›í•˜ëŠ” ë§Œí¼ì˜ ì•„ëž˜ìª½ ë§ˆì§„ì„ ì§€ì •í•©ë‹ˆë‹¤. */
 	font-size: 20px;
-	font-weight: bold; /* ±½°Ô ÁöÁ¤ */
+	font-weight: bold; /* êµµê²Œ ì§€ì • */
 }
 
 .bottom_1 {
-	margin-bottom: 50px; /* ¿øÇÏ´Â ¸¸Å­ÀÇ ¾Æ·¡ÂÊ ¸¶ÁøÀ» ÁöÁ¤ÇÕ´Ï´Ù. */
-	color: #808080; /* ÅØ½ºÆ® »ö»ó ¼³Á¤ */
+	margin-bottom: 50px; /* ì›í•˜ëŠ” ë§Œí¼ì˜ ì•„ëž˜ìª½ ë§ˆì§„ì„ ì§€ì •í•©ë‹ˆë‹¤. */
+	color: #808080; /* í…ìŠ¤íŠ¸ ìƒ‰ìƒ ì„¤ì • */
 }
 </style>
 </html>

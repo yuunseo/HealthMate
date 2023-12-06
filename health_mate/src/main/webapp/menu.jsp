@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <meta charset="EUC-KR">
 <nav class="navbar navbar-expand navbar-white bg-white custom-navbar-border">
@@ -12,6 +13,7 @@
                     <a class="nav-link" href="./gyms.jsp" style="color: #000000;">헬스장 조회</a> 
                 </li>
                 <li class="nav-item">
+
                     <a class="nav-link" href="./manageGym.jsp" style="color: #000000;">매장관리</a> 
                 </li>
             </ul>

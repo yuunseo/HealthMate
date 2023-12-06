@@ -1,5 +1,6 @@
 <%-- <%@ page contentType="text/html; charset=UTF-8"%> --%>
 <%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+
 <%@ page import="com.oreilly.servlet.*" %>
 <%@ page import="com.oreilly.servlet.multipart.*" %>
 <%@ page import="java.util.*" %>
@@ -14,15 +15,15 @@
 request.setCharacterEncoding("UTF-8");
 
 User userSession = (User) session.getAttribute("user");
-String ownerId = userSession.getUserID(); //·Î±×ÀÎµÈ È¸¿ø¾ÆÀÌµğ ¹Ş¾Æ¿À±â
+String ownerId = userSession.getUserID(); //ë¡œê·¸ì¸ëœ íšŒì›ì•„ì´ë”” ë°›ì•„ì˜¤ê¸°
 
 String filename = "";
-String realFolder = application.getRealPath("/upload");	//Àı´ë °æ·Î
+String realFolder = application.getRealPath("/upload");	//ì ˆëŒ€ ê²½ë¡œ
 
-System.out.println(realFolder);	//Àı´ë °æ·Î È®ÀÎ¿ë(ÄÜ¼Ö¿¡¼­ È®ÀÎ°¡´É)
+System.out.println(realFolder);	//ì ˆëŒ€ ê²½ë¡œ í™•ì¸ìš©(ì½˜ì†”ì—ì„œ í™•ì¸ê°€ëŠ¥)
 
-int maxSize = 5*1024*1024;	//ÃÖ´ë ¾÷·ÎµåµÉ ÆÄÀÏÀÇ Å©±â 5MB
-String encType = "utf-8";	//ÀÎÄÚµù À¯Çü
+int maxSize = 5*1024*1024;	//ìµœëŒ€ ì—…ë¡œë“œë  íŒŒì¼ì˜ í¬ê¸° 5MB
+String encType = "utf-8";	//ì¸ì½”ë”© ìœ í˜•
 
 MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
 

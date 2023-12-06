@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import="java.util.Date" %>
 <%@ page import="javax.servlet.http.HttpSession" %>
@@ -15,7 +16,7 @@
 	<div class = "jumbotron">
 		<div class = "container">
 			<h1 class = "text-center">Health Mate</h1>
-			<p class = "text-center">¸ðµÎÀÇ Çï½º ÅëÇÕ ÇÃ·§Æû</p>
+			<p class = "text-center">ëª¨ë‘ì˜ í—¬ìŠ¤ í†µí•© í”Œëž«í¼</p>
 		</div>
 	</div>
 	<main role = "main">
@@ -30,10 +31,10 @@
 	                } else {
 	            %>
 	            <div class="alert alert-danger" role="alert">
-		            <h4 class="alert-heading">·Î±×ÀÎÀÌ ÇÊ¿äÇÑ ¼­ºñ½º</h4>
-		            <p>·Î±×ÀÎÀÌ ÇÊ¿äÇÑ ¼­ºñ½ºÀÔ´Ï´Ù</p>
+		            <h4 class="alert-heading">ë¡œê·¸ì¸ì´ í•„ìš”í•œ ì„œë¹„ìŠ¤</h4>
+		            <p>ë¡œê·¸ì¸ì´ í•„ìš”í•œ ì„œë¹„ìŠ¤ìž…ë‹ˆë‹¤</p>
 		            <hr>
-		            <p class="mb-0"><a href="login.jsp">·Î±×ÀÎ</a>À» ½ÃµµÇÏ°Å³ª °èÁ¤ÀÌ ¾øÀ» ½Ã <a href="register.jsp">È¸¿ø°¡ÀÔ</a>ÇØÁÖ¼¼¿ä.</p>
+		            <p class="mb-0"><a href="login.jsp">ë¡œê·¸ì¸</a>ì„ ì‹œë„í•˜ê±°ë‚˜ ê³„ì •ì´ ì—†ì„ ì‹œ <a href="register.jsp">íšŒì›ê°€ìž…</a>í•´ì£¼ì„¸ìš”.</p>
 		        </div>
 	            <%
 	                }	
@@ -57,7 +58,7 @@
 					hour = hour-12;
 				}
 				String CT = hour + ":" + minute + ":" + second + " " + am_pm;
-				out.println("ÇöÀç Á¢¼Ó ½Ã°¢: " + CT + "\n");
+				out.println("í˜„ìž¬ ì ‘ì† ì‹œê°: " + CT + "\n");
 			%>
 		</div>
 	</div>
