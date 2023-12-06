@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="javax.servlet.http.HttpSession" %>
 
 <!DOCTYPE html>
@@ -19,7 +19,8 @@
 	<div class="container" align="center">
 		<div class="col-md-4 col-md-offset-4">
 			<%
-                HttpSession loginSession = request.getSession(false);
+                //HttpSession loginSession = request.getSession(false);
+			HttpSession loginSession = request.getSession();
                 if (loginSession != null && loginSession.getAttribute("user") != null) {
                     out.println("<div class='alert alert-warning'>이미 로그인한 상태입니다.</div>");
                 } else {
