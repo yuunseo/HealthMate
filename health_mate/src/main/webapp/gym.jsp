@@ -1,6 +1,5 @@
-<%-- <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%> --%>
-    <%@ page contentType="text/html; charset=UTF-8"%>
+
+<%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="dto.Gym" %>
 <%@ page import="dto.GymProduct" %>
@@ -12,45 +11,45 @@
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css"/>
 <style>
         .rounded-purple-button {
-		    border-radius: 50px; /* ¹öÆ°ÀÇ µÕ±Ù Á¤µµ¸¦ Á¶ÀýÇÒ ¼ö ÀÖ´Â °ª */
-		    padding: 10px 20px; /* ¹öÆ°ÀÇ ³»¿ë°ú °æ°è »çÀÌÀÇ ¿©¹éÀ» ¼³Á¤ (¼±ÅÃ»çÇ×) */
-		    /* Ãß°¡ÀûÀÎ ½ºÅ¸ÀÏ ¼³Á¤ (¼±ÅÃ»çÇ×) */
-		    background-color: #8E6FFF ; /* ¹è°æ»ö ¼³Á¤ */
-		    color: #fff; /* ÅØ½ºÆ® »ö»ó ¼³Á¤ */
-		    border: none; /* Å×µÎ¸® Á¦°Å */
-		    cursor: pointer; /* ¸¶¿ì½º Ä¿¼­¸¦ Æ÷ÀÎÅÍ·Î º¯°æ */
+		    border-radius: 50px; /* ë²„íŠ¼ì˜ ë‘¥ê·¼ ì •ë„ë¥¼ ì¡°ì ˆí•  ìˆ˜ ìžˆëŠ” ê°’ */
+		    padding: 10px 20px; /* ë²„íŠ¼ì˜ ë‚´ìš©ê³¼ ê²½ê³„ ì‚¬ì´ì˜ ì—¬ë°±ì„ ì„¤ì • (ì„ íƒì‚¬í•­) */
+		    /* ì¶”ê°€ì ì¸ ìŠ¤íƒ€ì¼ ì„¤ì • (ì„ íƒì‚¬í•­) */
+		    background-color: #8E6FFF ; /* ë°°ê²½ìƒ‰ ì„¤ì • */
+		    color: #fff; /* í…ìŠ¤íŠ¸ ìƒ‰ìƒ ì„¤ì • */
+		    border: none; /* í…Œë‘ë¦¬ ì œê±° */
+		    cursor: pointer; /* ë§ˆìš°ìŠ¤ ì»¤ì„œë¥¼ í¬ì¸í„°ë¡œ ë³€ê²½ */
 		}
 		
 		.rounded-gray-button {
-		    border-radius: 50px; /* ¹öÆ°ÀÇ µÕ±Ù Á¤µµ¸¦ Á¶ÀýÇÒ ¼ö ÀÖ´Â °ª */
-		    padding: 10px 20px; /* ¹öÆ°ÀÇ ³»¿ë°ú °æ°è »çÀÌÀÇ ¿©¹éÀ» ¼³Á¤ (¼±ÅÃ»çÇ×) */
-		    /* Ãß°¡ÀûÀÎ ½ºÅ¸ÀÏ ¼³Á¤ (¼±ÅÃ»çÇ×) */
-		    background-color: #6c757d ; /* ¹è°æ»ö ¼³Á¤ */
-		    color: #fff; /* ÅØ½ºÆ® »ö»ó ¼³Á¤ */
-		    border: none; /* Å×µÎ¸® Á¦°Å */
-		    cursor: pointer; /* ¸¶¿ì½º Ä¿¼­¸¦ Æ÷ÀÎÅÍ·Î º¯°æ */
+		    border-radius: 50px; /* ë²„íŠ¼ì˜ ë‘¥ê·¼ ì •ë„ë¥¼ ì¡°ì ˆí•  ìˆ˜ ìžˆëŠ” ê°’ */
+		    padding: 10px 20px; /* ë²„íŠ¼ì˜ ë‚´ìš©ê³¼ ê²½ê³„ ì‚¬ì´ì˜ ì—¬ë°±ì„ ì„¤ì • (ì„ íƒì‚¬í•­) */
+		    /* ì¶”ê°€ì ì¸ ìŠ¤íƒ€ì¼ ì„¤ì • (ì„ íƒì‚¬í•­) */
+		    background-color: #6c757d ; /* ë°°ê²½ìƒ‰ ì„¤ì • */
+		    color: #fff; /* í…ìŠ¤íŠ¸ ìƒ‰ìƒ ì„¤ì • */
+		    border: none; /* í…Œë‘ë¦¬ ì œê±° */
+		    cursor: pointer; /* ë§ˆìš°ìŠ¤ ì»¤ì„œë¥¼ í¬ì¸í„°ë¡œ ë³€ê²½ */
 		}
 		
 		.display1 {
-	        margin-top: 80px; /* ¿øÇÏ´Â ¸¸Å­ÀÇ À§ÂÊ ¸¶ÁøÀ» ÁöÁ¤ÇÕ´Ï´Ù. */
-	        margin-bottom: 5px; /* ¿øÇÏ´Â ¸¸Å­ÀÇ ¾Æ·¡ÂÊ ¸¶ÁøÀ» ÁöÁ¤ÇÕ´Ï´Ù. */
+	        margin-top: 80px; /* ì›í•˜ëŠ” ë§Œí¼ì˜ ìœ„ìª½ ë§ˆì§„ì„ ì§€ì •í•©ë‹ˆë‹¤. */
+	        margin-bottom: 5px; /* ì›í•˜ëŠ” ë§Œí¼ì˜ ì•„ëž˜ìª½ ë§ˆì§„ì„ ì§€ì •í•©ë‹ˆë‹¤. */
 	        font-size: 20px;
-	        font-weight: bold; /* ±½°Ô ÁöÁ¤ */
+	        font-weight: bold; /* êµµê²Œ ì§€ì • */
 	    }
 	    .bottom_1{
-	    	margin-bottom: 50px; /* ¿øÇÏ´Â ¸¸Å­ÀÇ ¾Æ·¡ÂÊ ¸¶ÁøÀ» ÁöÁ¤ÇÕ´Ï´Ù. */
-	    	color: #808080; /* ÅØ½ºÆ® »ö»ó ¼³Á¤ */
+	    	margin-bottom: 50px; /* ì›í•˜ëŠ” ë§Œí¼ì˜ ì•„ëž˜ìª½ ë§ˆì§„ì„ ì§€ì •í•©ë‹ˆë‹¤. */
+	    	color: #808080; /* í…ìŠ¤íŠ¸ ìƒ‰ìƒ ì„¤ì • */
 	    }
 		
 </style>
 <meta charset="EUC-KR">
-<title>Çï½ºÀå »ó¼¼ Á¤º¸</title>
+<title>í—¬ìŠ¤ìž¥ ìƒì„¸ ì •ë³´</title>
 </head>
 <body>
 	<jsp:include page="menu.jsp"/>
 	<div class="container">
-			<p class="display1">Çï½ºÀå Á¤º¸
-			<p class="bottom_1"> Çï½ºÀå Á¤º¸¸¦ È®ÀÎÇØÁÖ¼¼¿ä.
+			<p class="display1">í—¬ìŠ¤ìž¥ ì •ë³´
+			<p class="bottom_1"> í—¬ìŠ¤ìž¥ ì •ë³´ë¥¼ í™•ì¸í•´ì£¼ì„¸ìš”.
 	</div>
 	<%
 		String id = request.getParameter("id");
@@ -66,9 +65,9 @@
 			<div class="row-md-6">
 				<h3><%=gym.getGymName() %></h3>
 				<p><%=gym.getGymInfo() %>
-				<p> <b>ÁÖ¼Ò | </b> <%=gym.getAddress() %>
-				<p> <b>¿î¿µ ½Ã°£ | </b> <%=gym.getTime() %>
-				<p> <b>[ Çï½ºÀå »óÇ° ]</b>
+				<p> <b>ì£¼ì†Œ | </b> <%=gym.getAddress() %>
+				<p> <b>ìš´ì˜ ì‹œê°„ | </b> <%=gym.getTime() %>
+				<p> <b>[ í—¬ìŠ¤ìž¥ ìƒí’ˆ ]</b>
 			</div>
 		</div>
 		<div align="left">
@@ -83,8 +82,8 @@
 						<img src="./resources/images/<%=product.getFilename() %>" width="200" style="height:auto;">
 					</div>
 					<div class="col">
-						<p> <b>°¡°Ý: </b> <%=product.getUnitPrice() %>¿ø
-						<p> <b>±â°£: </b>  <%=product.getPeriod() %>°³¿ù
+						<p> <b>ê°€ê²©: </b> <%=product.getUnitPrice() %>ì›
+						<p> <b>ê¸°ê°„: </b>  <%=product.getPeriod() %>ê°œì›”
 						
 						<br>
 						<input type="radio" name="product">
@@ -96,8 +95,8 @@
 				%>
 			</div>
 		<div class="center">
-			<a href="#" class="btn rounded-purple-button" >»óÇ° ±¸¸Å &raquo;</a>
-			<a href="./gyms.jsp" class="btn rounded-gray-button">Çï½ºÀå ¸ñ·Ï &raquo;</a>
+			<a href="#" class="btn rounded-purple-button" >ìƒí’ˆ êµ¬ë§¤ &raquo;</a>
+			<a href="./gyms.jsp" class="btn rounded-gray-button">í—¬ìŠ¤ìž¥ ëª©ë¡ &raquo;</a>
 		</div>
 		<hr>
 	</div>

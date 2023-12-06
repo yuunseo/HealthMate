@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+
 <%@ page import="com.oreilly.servlet.*" %>
 <%@ page import="com.oreilly.servlet.multipart.*" %>
 <%@ page import="java.util.*" %>
@@ -10,6 +11,7 @@
 request.setCharacterEncoding("UTF-8");
 
 String filename = "";
+
 String realFolder = application.getRealPath("/upload");	//절대 경로
 
 System.out.println(realFolder);	//절대 경로 확인(콘솔에서 확인가능)
