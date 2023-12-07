@@ -5,6 +5,17 @@
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
 <script type="text/javascript" src="./resources/js/validation.js"></script>
 <title>헬스장 등록</title>
+<script type="text/javascript">
+    // 현재 날짜를 YYYY.MM.DD 형식으로 변환하는 함수
+    function setCurrentDate() {
+        var today = new Date();
+        var year = today.getFullYear();
+        var month = ('0' + (today.getMonth() + 1)).slice(-2);
+        var day = ('0' + today.getDate()).slice(-2);
+        var currentDate = year + '.' + month + '.' + day;
+        document.getElementById('paymentDate').value = currentDate;
+    }
+</script>
 </head>
 <body>
 	<jsp:include page="menu.jsp" />
