@@ -17,7 +17,7 @@
     }
 </script>
 </head>
-<body>
+<body onload="setCurrentDate()"> 
 	<jsp:include page="menu.jsp" />
 	<div class="container">
 		<h1 class="display1">헬스장 상품 구매</h1>
