@@ -56,19 +56,18 @@
 			<div class="form-group row">
 			    <label class="col-sm-2">할부 개월수</label>
 			    <div class="col-sm-10">
-			   		<label class="checkbox-inline">
-			            <input type="checkbox" name="installmentMonths" value="일시"> 일시불
+			        <label class="radio-inline">
+			            <input type="radio" name="installmentMonths" value="일시" checked> 일시불
 			        </label>
-			        <label class="checkbox-inline">
-			            <input type="checkbox" name="installmentMonths" value="1개월"> 1개월
+			        <label class="radio-inline">
+			            <input type="radio" name="installmentMonths" value="1개월"> 1개월
 			        </label>
-			        <label class="checkbox-inline">
-			            <input type="checkbox" name="installmentMonths" value="2개월"> 2개월
+			        <label class="radio-inline">
+			            <input type="radio" name="installmentMonths" value="2개월"> 2개월
 			        </label>
-			        <label class="checkbox-inline">
-			            <input type="checkbox" name="installmentMonths" value="3개월"> 3개월
+			        <label class="radio-inline">
+			            <input type="radio" name="installmentMonths" value="3개월"> 3개월
 			        </label>
-			        <!-- 여기까지 체크박스를 추가합니다 -->
 			    </div>
 			</div>
 
