@@ -24,20 +24,18 @@
 		<p class="bottom_1">헬스장 상품 구매 결제</p>
 	</div>
 	<%
-    String gymId = request.getParameter("gymId");
+    String gymProductId = request.getParameter("gymProductId");
 
 	%>
 	<div class="container" align="left">
 		<form class="form-registration" action="./processPaymentGym.jsp"
 			name="PaymentGym" method="post">
-			<input type="hidden" name="gymId" value="<%=gymId%>">
-
-			
+			<input type="hidden" name="gymProductId" value="<%=gymProductId%>">
 			
 			<div class="form-group row">
                 <label class="col-sm-2">결제일자</label>
                 <div class="col-sm-3">
-                    <input type="text" id="paymentDate" name="paymentDate" class="form-control" readonly> 
+                    <input type="text" id="paymentDate" name="paymentDate" class="form-control"> 
                 </div>
             </div>
 			

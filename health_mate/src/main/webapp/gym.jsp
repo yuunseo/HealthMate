@@ -116,6 +116,9 @@ request.setCharacterEncoding("utf-8");
 						<b>기간 | </b>
 						<%=rs2.getString("gp_period")%>개월 <br>
 				</div>
+				<div align="right">
+				<a href="./paymentGym.jsp?gymProductId=<%=rs2.getString("gp_id") %>" class="btn rounded-purple-button">상품 구매 &raquo;</a>
+				</div>
 			</div>
 			<%
 			}
@@ -131,7 +134,7 @@ request.setCharacterEncoding("utf-8");
 		</div>
 		<div class="center">
 			
-			<a href="./paymentGym.jsp?gymId=<%=rs.getString("g_id")%>" class="btn rounded-purple-button">상품 구매 &raquo;</a>
+			
 			
 			<a
 				href="./gyms.jsp" class="btn rounded-gray-button">헬스장 목록 &raquo;</a>
