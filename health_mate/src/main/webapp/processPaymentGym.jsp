@@ -1,33 +1,52 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="javax.servlet.http.HttpSession" %>
-<%@ page import="dto.User" %>
 <%@ page import="dao.PaymentRepository" %>
 <%@ page import="dto.Payment" %>
+<%@ page import="java.util.*"%>
+<%@ page import="java.sql.*"%>
+<%@ include file="dbconn.jsp" %>
+
 
 <%
-    request.setCharacterEncoding("UTF-8");
+    /* request.setCharacterEncoding("UTF-8");
+response.setContentType("text/html; charset=UTF-8");
 
-    HttpSession session = request.getSession();
-    String userID = (String) session.getAttribute("userID"); 
+
+
+    String userID = (String) session.getAttribute("sessionID");
     String gymProductId = request.getParameter("gymProductId");
-    String paymentId = request.getParameter("paymentId"); 
-    Integer paymenyPrice = Integer.parseInt(request.getParameter("paymenyPrice"));
     String paymentDate = request.getParameter("paymentDate");
     String payWith = request.getParameter("payWith");
-
-    // Create Payment object
+    String installmentMonths = request.getParameter("installmentMonths"); */
+/* 
     Payment payment = new Payment();
-    payment.setUserID(userID);
+
+    payment.setUserId(userID);
     payment.setGymProductId(gymProductId);
-    payment.setPaymentId(paymentId);
-    payment.setPaymenyPrice(paymenyPrice);
     payment.setPaymentDate(paymentDate);
-    payment.setPayWith(payWith);
+    payment.setPaymentMethod(payWith);
+    payment.setPaymentMonth(installmentMonths);
 
-    // Save payment details using DAO
-	PaymentRepository paymentRepository = new PaymentRepository();
-    paymentRepository.savePayment(payment);
+    PaymentRepository paymentRepository = new PaymentRepository();
+    paymentRepository.savePayment(payment); 8\
+    */
+    
+    /* PreparedStatement pstmt = null;
 
-    // Redirect to success page
+    String sql = "insert into payment values(null,?,?,?,?,?)";
+    pstmt = conn.prepareStatement(sql);
+    pstmt.setString(1,userID);
+    pstmt.setString(2,paymentDate);
+    pstmt.setString(3,payWith);
+    pstmt.setString(4,installmentMonths);
+    pstmt.setString(5,gymProductId);
+    pstmt.executeUpdate();
+
+    if(pstmt!=null)
+    	pstmt.close();
+    if(conn!=null)
+    	conn.close(); */
+
     response.sendRedirect("paymentGymSuccess.jsp");
 %>
+

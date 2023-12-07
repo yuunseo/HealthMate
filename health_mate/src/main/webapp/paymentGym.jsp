@@ -1,51 +1,77 @@
-<%-- <%@ page contentType="text/html; charset=UTF-8"%> --%>
-<%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-
+<% request.setCharacterEncoding("utf-8"); %>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
 <script type="text/javascript" src="./resources/js/validation.js"></script>
-<title>�ｺ�� ���</title>
+<title>헬스장 등록</title>
+<script type="text/javascript">
+    // 현재 날짜를 YYYY.MM.DD 형식으로 변환하는 함수
+    function setCurrentDate() {
+        var today = new Date();
+        var year = today.getFullYear();
+        var month = ('0' + (today.getMonth() + 1)).slice(-2);
+        var day = ('0' + today.getDate()).slice(-2);
+        var currentDate = year + '.' + month + '.' + day;
+        document.getElementById('paymentDate').value = currentDate;
+    }
+</script>
 </head>
-<body>
+<body onload="setCurrentDate()"> 
 	<jsp:include page="menu.jsp" />
 	<div class="container">
-		<h1 class="display1">�ｺ�� ���</h1>
-		<p class="bottom_1">�ｺ�� ��� ������ �Է����ּ���</p>
+		<h1 class="display1">헬스장 상품 구매</h1>
+		<p class="bottom_1">헬스장 상품 구매 결제</p>
 	</div>
 	<%
-	String id = request.getParameter("id");
+    String gymProductId = request.getParameter("gymProductId");
+
 	%>
 	<div class="container" align="left">
 		<form class="form-registration" action="./processPaymentGym.jsp"
 			name="PaymentGym" method="post">
-			<input type="hidden" name="gymId" value="<%=id%>">
-
+			<input type="hidden" name="gymProductId" value="<%=gymProductId%>">
+			
 			<div class="form-group row">
-				<label class="col-sm-2">�����ݾ�</label>
+                <label class="col-sm-2">결제일자</label>
+                <div class="col-sm-3">
+                    <input type="text" id="paymentDate" name="paymentDate" class="form-control"> 
+                </div>
+            </div>
+			
+			<div class="form-group row">
+				<label class="col-sm-2">결제방법</label>
 				<div class="col-sm-3">
-					<input type="text" id="paymenyPrice" name="paymenyPrice" class="form-control">
+					<p> <select name="payWith">
+						<option value="카드 결제">카드 결제</option>
+						<option value="현금 결제">현금 결제</option>
+						<option value="무통장 입금">무통장 입금</option>
+					</select>
 				</div>
 			</div>
+			
 			<div class="form-group row">
-				<label class="col-sm-2">��������</label>
-				<div class="col-sm-3">
-					<input type="text" id="paymentDate" name="paymentDate"
-						class="form-control">
-				</div>
-			</div>
-			<div class="form-group row">
-				<label class="col-sm-2">�������</label>
-				<div class="col-sm-3">
-					<input type="text" id="payWith" name="payWith" class="form-control"
-						>
-				</div>
+			    <label class="col-sm-2">할부 개월수</label>
+			    <div class="col-sm-10">
+			        <label class="radio-inline">
+			            <input type="radio" name="installmentMonths" value="일시" checked> 일시불
+			        </label>
+			        <label class="radio-inline">
+			            <input type="radio" name="installmentMonths" value="1개월"> 1개월
+			        </label>
+			        <label class="radio-inline">
+			            <input type="radio" name="installmentMonths" value="2개월"> 2개월
+			        </label>
+			        <label class="radio-inline">
+			            <input type="radio" name="installmentMonths" value="3개월"> 3개월
+			        </label>
+			    </div>
 			</div>
 
 			<div class="form-group row">
 				<div class="col-sm-offset-2 col-sm-10 ">
 					<button type="button" class="btn rounded-button"
-						onclick="location.href='processPaymentGym.jsp'">�ｺ�� ���</button>
+						onclick="location.href='processPaymentGym.jsp'">헬스장 상품 구매</button>
 				</div>
 			</div>
 		</form>
@@ -53,25 +79,25 @@
 </body>
 <style type="text/css">
 .rounded-button {
-	border-radius: 50px; /* ��ư�� �ձ� ������ ������ �� �ִ� �� */
-	padding: 10px 20px; /* ��ư�� ����� ��� ������ ������ ���� (���û���) */
-	/* �߰����� ��Ÿ�� ���� (���û���) */
-	background-color: #8E6FFF; /* ���� ���� */
-	color: #fff; /* �ؽ�Ʈ ���� ���� */
-	border: none; /* �׵θ� ���� */
-	cursor: pointer; /* ���콺 Ŀ���� �����ͷ� ���� */
+	border-radius: 50px; /* 버튼의 둥근 정도를 조절할 수 있는 값 */
+	padding: 10px 20px; /* 버튼의 내용과 경계 사이의 여백을 설정 (선택사항) */
+	/* 추가적인 스타일 설정 (선택사항) */
+	background-color: #8E6FFF; /* 배경색 설정 */
+	color: #fff; /* 텍스트 색상 설정 */
+	border: none; /* 테두리 제거 */
+	cursor: pointer; /* 마우스 커서를 포인터로 변경 */
 }
 
 .display1 {
-	margin-top: 80px; /* ���ϴ� ��ŭ�� ���� ������ �����մϴ�. */
-	margin-bottom: 5px; /* ���ϴ� ��ŭ�� �Ʒ��� ������ �����մϴ�. */
+	margin-top: 80px; /* 원하는 만큼의 위쪽 마진을 지정합니다. */
+	margin-bottom: 5px; /* 원하는 만큼의 아래쪽 마진을 지정합니다. */
 	font-size: 20px;
-	font-weight: bold; /* ���� ���� */
+	font-weight: bold; /* 굵게 지정 */
 }
 
 .bottom_1 {
-	margin-bottom: 50px; /* ���ϴ� ��ŭ�� �Ʒ��� ������ �����մϴ�. */
-	color: #808080; /* �ؽ�Ʈ ���� ���� */
+	margin-bottom: 50px; /* 원하는 만큼의 아래쪽 마진을 지정합니다. */
+	color: #808080; /* 텍스트 색상 설정 */
 }
 </style>
 </html>

@@ -1,3 +1,11 @@
 eclipse.preferences.version=1
+encoding//src/main/webapp/addGymProduct.jsp=UTF-8
+encoding//src/main/webapp/exceptionNoPage.jsp=UTF-8
+encoding//src/main/webapp/gym.jsp=UTF-8
+encoding//src/main/webapp/login.jsp=UTF-8
+encoding//src/main/webapp/loginFailed.jsp=UTF-8
+encoding//src/main/webapp/manageGymProduct.jsp=UTF-8
 encoding//src/main/webapp/menu.jsp=UTF-8
-encoding/<project>=UTF-8
+encoding//src/main/webapp/processAddGym.jsp=UTF-8
+encoding//src/main/webapp/register.jsp=UTF-8
+encoding//src/main/webapp/welcome.jsp=UTF-8

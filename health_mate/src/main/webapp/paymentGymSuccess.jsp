@@ -1,10 +1,10 @@
-<%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-
+<% request.setCharacterEncoding("utf-8"); %>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
 <script type="text/javascript" src="./resources/js/validation.js"></script>
-<title>Çï½ºÀå µî·Ï¼º°ø</title>
+<title>í—¬ìŠ¤ìž¥ ë“±ë¡ì„±ê³µ</title>
 </head>
 <body>
 	<jsp:include page="menu.jsp" />
@@ -19,7 +19,7 @@
 				</div>
 			</div>
 				<div class="col-sm-offset-2 col-sm-10 display2">
-    				<button type="button" class="btn rounded-button" onclick="location.href='manageGym.jsp'">È¨À¸·Î °¡±â</button>
+    				<button type="button" class="btn rounded-button" onclick="location.href='manageGym.jsp'">í™ˆìœ¼ë¡œ ê°€ê¸°</button>
 				</div>
 
 	</div>
@@ -29,30 +29,30 @@
 </body>
 <style type="text/css">
 .rounded-button {
-	border-radius: 50px; /* ¹öÆ°ÀÇ µÕ±Ù Á¤µµ¸¦ Á¶ÀýÇÒ ¼ö ÀÖ´Â °ª */
-	padding: 10px 20px; /* ¹öÆ°ÀÇ ³»¿ë°ú °æ°è »çÀÌÀÇ ¿©¹éÀ» ¼³Á¤ (¼±ÅÃ»çÇ×) */
-	/* Ãß°¡ÀûÀÎ ½ºÅ¸ÀÏ ¼³Á¤ (¼±ÅÃ»çÇ×) */
-	background-color: #8E6FFF; /* ¹è°æ»ö ¼³Á¤ */
-	color: #fff; /* ÅØ½ºÆ® »ö»ó ¼³Á¤ */
-	border: none; /* Å×µÎ¸® Á¦°Å */
-	cursor: pointer; /* ¸¶¿ì½º Ä¿¼­¸¦ Æ÷ÀÎÅÍ·Î º¯°æ */
+	border-radius: 50px; /* ë²„íŠ¼ì˜ ë‘¥ê·¼ ì •ë„ë¥¼ ì¡°ì ˆí•  ìˆ˜ ìžˆëŠ” ê°’ */
+	padding: 10px 20px; /* ë²„íŠ¼ì˜ ë‚´ìš©ê³¼ ê²½ê³„ ì‚¬ì´ì˜ ì—¬ë°±ì„ ì„¤ì • (ì„ íƒì‚¬í•­) */
+	/* ì¶”ê°€ì ì¸ ìŠ¤íƒ€ì¼ ì„¤ì • (ì„ íƒì‚¬í•­) */
+	background-color: #8E6FFF; /* ë°°ê²½ìƒ‰ ì„¤ì • */
+	color: #fff; /* í…ìŠ¤íŠ¸ ìƒ‰ìƒ ì„¤ì • */
+	border: none; /* í…Œë‘ë¦¬ ì œê±° */
+	cursor: pointer; /* ë§ˆìš°ìŠ¤ ì»¤ì„œë¥¼ í¬ì¸í„°ë¡œ ë³€ê²½ */
 }
 
 .display1 {
-	margin-top: 80px; /* ¿øÇÏ´Â ¸¸Å­ÀÇ À§ÂÊ ¸¶ÁøÀ» ÁöÁ¤ÇÕ´Ï´Ù. */
-	margin-bottom: 5px; /* ¿øÇÏ´Â ¸¸Å­ÀÇ ¾Æ·¡ÂÊ ¸¶ÁøÀ» ÁöÁ¤ÇÕ´Ï´Ù. */
+	margin-top: 80px; /* ì›í•˜ëŠ” ë§Œí¼ì˜ ìœ„ìª½ ë§ˆì§„ì„ ì§€ì •í•©ë‹ˆë‹¤. */
+	margin-bottom: 5px; /* ì›í•˜ëŠ” ë§Œí¼ì˜ ì•„ëž˜ìª½ ë§ˆì§„ì„ ì§€ì •í•©ë‹ˆë‹¤. */
 	margin-left: 400px;
 }
 
 .display2 {
-	margin-top: 80px; /* ¿øÇÏ´Â ¸¸Å­ÀÇ À§ÂÊ ¸¶ÁøÀ» ÁöÁ¤ÇÕ´Ï´Ù. */
-	margin-bottom: 5px; /* ¿øÇÏ´Â ¸¸Å­ÀÇ ¾Æ·¡ÂÊ ¸¶ÁøÀ» ÁöÁ¤ÇÕ´Ï´Ù. */
+	margin-top: 80px; /* ì›í•˜ëŠ” ë§Œí¼ì˜ ìœ„ìª½ ë§ˆì§„ì„ ì§€ì •í•©ë‹ˆë‹¤. */
+	margin-bottom: 5px; /* ì›í•˜ëŠ” ë§Œí¼ì˜ ì•„ëž˜ìª½ ë§ˆì§„ì„ ì§€ì •í•©ë‹ˆë‹¤. */
 	margin-left: 10px;
 }
 
 .bottom_1 {
-	margin-bottom: 50px; /* ¿øÇÏ´Â ¸¸Å­ÀÇ ¾Æ·¡ÂÊ ¸¶ÁøÀ» ÁöÁ¤ÇÕ´Ï´Ù. */
-	color: #808080; /* ÅØ½ºÆ® »ö»ó ¼³Á¤ */
+	margin-bottom: 50px; /* ì›í•˜ëŠ” ë§Œí¼ì˜ ì•„ëž˜ìª½ ë§ˆì§„ì„ ì§€ì •í•©ë‹ˆë‹¤. */
+	color: #808080; /* í…ìŠ¤íŠ¸ ìƒ‰ìƒ ì„¤ì • */
 }
 </style>
 </html>

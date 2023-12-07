@@ -8,43 +8,44 @@ import java.sql.SQLException;
 
 public class PaymentRepository {
 
-    // Database connection details
-    private static final String URL = "jdbc:your_database_url";
-    private static final String USER = "your_database_username";
-    private static final String PASSWORD = "your_database_password";
+    // 데이터베이스 연결 설정
+    private String jdbcURL = "jdbc:mysql://localhost:3306/yourdatabase"; // 데이터베이스 URL
+    private String jdbcUsername = "username"; // 데이터베이스 사용자 이름
+    private String jdbcPassword = "password"; // 데이터베이스 비밀번호
 
-    // SQL Query for inserting payment
-    private static final String INSERT_PAYMENT_SQL = "INSERT INTO payments (userID, gymProductId, paymentId, paymenyPrice, paymentDate, payWith) VALUES (?, ?, ?, ?, ?, ?);";
-
-    public PaymentRepository() {
-        // Optional: Load database driver class if required
-        // Class.forName("com.your.jdbc.Driver");
+    // 데이터베이스 연결을 위한 메소드
+    private Connection getConnection() {
+        Connection connection = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+        } catch (SQLException e) {
+            // SQL 연결 예외 처리
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            // JDBC 드라이버 클래스를 찾을 수 없을 때의 예외 처리
+            e.printStackTrace();
+        }
+        return connection;
     }
 
-    // Method to save payment details
-    public void savePayment(Payment payment) throws SQLException {
-        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PAYMENT_SQL)) {
+    // Payment 객체를 데이터베이스에 저장
+    public void savePayment(Payment payment) {
+        String sql = "INSERT INTO payments (userId, gymProductId, paymentDate, paymentMethod, paymentMonth) VALUES (?, ?, ?, ?, ?)";
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            
+            pstmt.setString(1, payment.getUserId());
+            pstmt.setString(2, payment.getGymProductId());
+            pstmt.setString(3, payment.getPaymentDate());
+            pstmt.setString(4, payment.getPaymentMethod());
+            pstmt.setString(5, payment.getPaymentMonth());
 
-            preparedStatement.setString(1, payment.getUserID());
-            preparedStatement.setString(2, payment.getGymProductId());
-            preparedStatement.setString(3, payment.getPaymentId());
-            preparedStatement.setInt(4, payment.getPaymenyPrice()); // Note: Ensure this matches the data type in your database
-            preparedStatement.setString(5, payment.getPaymentDate());
-            preparedStatement.setString(6, payment.getPayWith());
-
-            int affectedRows = preparedStatement.executeUpdate();
-
-            // Optional: Check if the insert was successful
-            if (affectedRows > 0) {
-                System.out.println("Payment saved successfully!");
-            } else {
-                System.out.println("Saving payment failed.");
-            }
+            pstmt.executeUpdate();
         } catch (SQLException e) {
+            // SQL 실행 예외 처리
             e.printStackTrace();
-            throw e; // Rethrow the exception to handle it in the calling method
         }
     }
-
 }
+

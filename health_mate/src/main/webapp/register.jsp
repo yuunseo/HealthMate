@@ -1,5 +1,8 @@
 
-<%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%
+request.setCharacterEncoding("utf-8");
+%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,47 +11,49 @@
 
 </head>
 <script type="text/javascript">
-        function validateForm() {
-            var userID = document.getElementById('inputID').value;
-            var password = document.getElementById('inputPassword').value;
-            var confirmPassword = document.getElementById('inputConfirmPassword').value;
-            var age = document.getElementById('inputAge').value;
-            var form = document.User;
+	function validateForm() {
+		var userID = document.getElementById('inputID').value;
+		var password = document.getElementById('inputPassword').value;
+		var confirmPassword = document.getElementById('inputConfirmPassword').value;
+		var age = document.getElementById('inputAge').value;
+		var form = document.User;
 
-            var passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,}$/;
+		var passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,}$/;
 
-                if (age <= 0) {
+		if (!userID) {
+			alert("아이디를 입력하세요.");
+			return false;
+		}
 
-                    alert("유효한 나이를 입력해주세요.");
-                    return false;
-                }
-            if (userID.length < 6) {
-                alert("ID는 최소 6자리 이상이어야합니다.");
-                return false;
-            }
+		if (!password) {
+			alert("비밀번호를 입력하세요.");
+			return false;
+		}
 
-            /* if (password.length < 6) {
+		if (age <= 0) {
 
-                alert("비밀번호는 최소 6자리 이상이어야합니다.");
-                return false;
-            } */
+			alert("유효한 나이를 입력해주세요.");
+			return false;
+		}
+		if (userID.length < 6) {
+			alert("ID는 최소 6자리 이상이어야합니다.");
+			return false;
+		}
+		
+		if (!passwordRegex.test(password)) {
 
-            if (!passwordRegex.test(password)) {
+			alert("비밀번호는 영문자, 숫자, 특수문자를 포함해 8자리 이상이어야 합니다.");
+			return false;
+		}
 
-                alert("비밀번호는 영문자, 숫자, 특수문자를 포함해 8자리 이상이어야 합니다.");
-                return false;
-            }
+		if (password !== confirmPassword) {
+			alert("비밀번호가 틀립니다.");
+			return false;
+		}
 
-            if (password !== confirmPassword) {
-                alert("비밀번호가 틀립니다.");
-                return false;
-            }
-
-
-
-            form.submit();
-        }
-    </script>
+		form.submit();
+	}
+</script>
 <body>
 	<jsp:include page="menu.jsp" />
 	<div class="jumbotron">
@@ -105,7 +110,6 @@
 					<div class="form-check">
 						<input type="checkbox" class="form-check-input"
 							id="registerGymCheck" name="registerGym"> <label
-
 							class="form-check-label" for="registerGymCheck">매장 관리가
 							목적입니까?</label>
 					</div>
