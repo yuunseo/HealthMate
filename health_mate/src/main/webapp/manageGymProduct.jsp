@@ -4,10 +4,6 @@ request.setCharacterEncoding("utf-8");
 %>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.ArrayList"%>
-<%@ page import="dto.Gym"%>
-<%@ page import="dto.GymProduct"%>
-<%@ page import="dao.GymRepository"%>
-<%@ page import="dao.GymProductRepository"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -114,15 +110,9 @@ request.setCharacterEncoding("utf-8");
 			String sql2 = "select * from gymProduct where g_id='" + rs.getString("g_id") + "'";
 			pstmt2 = conn.prepareStatement(sql2);
 			rs2 = pstmt2.executeQuery();
-			if (rs2 == null) {
-			%>
-			<div align="center" style="padding: 10px;">
-				<p>
-					아직 등록된 상품이 없습니다. <br>PT상품, 회원권 등을 추가해 보세요!
-			</div>
-			<%
-			}
-			while (rs2.next()) {
+			if (rs2.next()) {
+				rs2.previous();
+				while (rs2.next()) {
 			%>
 			<hr>
 			<div class="row" style="align-items: center; column-gap: 5px;">
@@ -132,8 +122,9 @@ request.setCharacterEncoding("utf-8");
 				</div>
 				<div class="col">
 					<p>
-						<b><%=rs2.getString("gp_name")%></b> <p>
-					<b>가격 | </b>
+						<b><%=rs2.getString("gp_name")%></b>
+					<p>
+						<b>가격 | </b>
 						<%=rs2.getString("gp_price")%>원
 					<p>
 						<b>기간 | </b>
@@ -147,9 +138,20 @@ request.setCharacterEncoding("utf-8");
 			</div>
 			<%
 			}
+			} else {
+			%>
+
+			<div align="center" style="padding: 10px;">
+				<p>
+					아직 등록된 상품이 없습니다. <br>PT상품, 회원권 등을 추가해 보세요!
+			</div>
+			<%
 			}
 			%>
 		</div>
+		<%
+		}
+		%>
 		<div class="button-zone" align="center">
 			<a href="./addGymProduct.jsp?id=<%=id%>"
 				class="btn rounded-purple-button">상품 추가 &raquo;</a> <a
