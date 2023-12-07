@@ -37,6 +37,7 @@
 					<input type="text" id="paymenyPrice" name="paymenyPrice" class="form-control">
 				</div>
 			</div>
+			
 			<div class="form-group row">
 				<label class="col-sm-2">결제일자</label>
 				<div class="col-sm-3">
