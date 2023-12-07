@@ -25,18 +25,15 @@
 	</div>
 	<%
 	String id = request.getParameter("id");
+    String price = request.getParameter("price"); 
+
 	%>
 	<div class="container" align="left">
 		<form class="form-registration" action="./processPaymentGym.jsp"
 			name="PaymentGym" method="post">
 			<input type="hidden" name="gymId" value="<%=id%>">
 
-			<div class="form-group row">
-				<label class="col-sm-2">결제금액</label>
-				<div class="col-sm-3">
-					<input type="text" id="paymenyPrice" name="paymenyPrice" class="form-control">
-				</div>
-			</div>
+			
 			
 			<div class="form-group row">
                 <label class="col-sm-2">결제일자</label>
@@ -54,6 +51,25 @@
 						<option value="무통장 입금">무통장 입금</option>
 					</select>
 				</div>
+			</div>
+			
+			<div class="form-group row">
+			    <label class="col-sm-2">할부 개월수</label>
+			    <div class="col-sm-10">
+			   		<label class="checkbox-inline">
+			            <input type="checkbox" name="installmentMonths" value="일시"> 일시불
+			        </label>
+			        <label class="checkbox-inline">
+			            <input type="checkbox" name="installmentMonths" value="1개월"> 1개월
+			        </label>
+			        <label class="checkbox-inline">
+			            <input type="checkbox" name="installmentMonths" value="2개월"> 2개월
+			        </label>
+			        <label class="checkbox-inline">
+			            <input type="checkbox" name="installmentMonths" value="3개월"> 3개월
+			        </label>
+			        <!-- 여기까지 체크박스를 추가합니다 -->
+			    </div>
 			</div>
 
 			<div class="form-group row">
