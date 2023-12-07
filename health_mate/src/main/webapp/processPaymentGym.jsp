@@ -6,8 +6,8 @@
 <%
     request.setCharacterEncoding("UTF-8");
 
-    HttpSession session = request.getSession();
-    String userID = (String) session.getAttribute("userID");
+    HttpSession Hsession = request.getSession();
+    String userID = (String) Hsession.getAttribute("userID");
     String gymProductId = request.getParameter("gymProductId");
     String paymentDate = request.getParameter("paymentDate");
     String payWith = request.getParameter("payWith");
