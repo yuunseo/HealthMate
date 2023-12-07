@@ -131,7 +131,7 @@ request.setCharacterEncoding("utf-8");
 		</div>
 		<div class="center">
 			
-			<a href="./paymentGym.jsp" class="btn rounded-purple-button">상품 구매 &raquo;</a>
+			<a href="./paymentGym.jsp?gymId=<%=id %>" class="btn rounded-purple-button">상품 구매 &raquo;</a>
 			
 			<a
 				href="./gyms.jsp" class="btn rounded-gray-button">헬스장 목록 &raquo;</a>
