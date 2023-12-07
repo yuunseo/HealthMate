@@ -6,6 +6,7 @@
 </style>
 <footer class = "container" align="center">
 	<p>&copy;HealthMate</p>
+	<a href="login.jsp" class="btn custom-bg">Login</a>
 	<a href="logout.jsp" class="btn custom-bg">Logout</a>
 </footer>
 <br>
