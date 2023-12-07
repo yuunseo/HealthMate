@@ -9,8 +9,8 @@
 <body>
 	<jsp:include page="menu.jsp" />
 	<div class="container">
-		<h1 class="display1">헬스장 등록</h1>
-		<p class="bottom_1">헬스장 등록 정보를 입력해주세요</p>
+		<h1 class="display1">헬스장 상품 구매</h1>
+		<p class="bottom_1">헬스장 상품 구매 결제</p>
 	</div>
 	<%
 	String id = request.getParameter("id");
@@ -44,7 +44,7 @@
 			<div class="form-group row">
 				<div class="col-sm-offset-2 col-sm-10 ">
 					<button type="button" class="btn rounded-button"
-						onclick="location.href='processPaymentGym.jsp'">헬스장 등록</button>
+						onclick="location.href='processPaymentGym.jsp'">헬스장 상품 구매</button>
 				</div>
 			</div>
 		</form>
