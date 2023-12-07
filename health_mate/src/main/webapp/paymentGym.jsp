@@ -39,17 +39,20 @@
 			</div>
 			
 			<div class="form-group row">
-				<label class="col-sm-2">결제일자</label>
-				<div class="col-sm-3">
-					<input type="text" id="paymentDate" name="paymentDate"
-						class="form-control">
-				</div>
-			</div>
+                <label class="col-sm-2">결제일자</label>
+                <div class="col-sm-3">
+                    <input type="text" id="paymentDate" name="paymentDate" class="form-control" readonly> <!-- 수정됨 -->
+                </div>
+            </div>
+			
 			<div class="form-group row">
 				<label class="col-sm-2">결제방법</label>
 				<div class="col-sm-3">
-					<input type="text" id="payWith" name="payWith" class="form-control"
-						>
+					<p> <select name="payWith">
+						<option value="카드 결제">카드 결제</option>
+						<option value="현금 결제">현금 결제</option>
+						<option value="무통장 입금">무통장 입금</option>
+					</select>
 				</div>
 			</div>
 
