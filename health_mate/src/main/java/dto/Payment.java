@@ -1,75 +1,67 @@
 package dto;
-import dto.GymProduct;
-import dto.User;
 
 public class Payment {
-	
-	private String userID; //사용자 ID(fk)
-	private String gymProductId; //헬스장 상품ID(fk)
-	private String paymentId; //결제ID
-	private Integer paymenyPrice; //결제 금액
-	private String paymentDate; //결제 일자
-	private String payWith; //결제 방법
-	
-	public Payment() {
-		super();
-	}
+    
+	private String userId;         // 유저 코드 (FK)
+    private String paymentDate;    // 지불 날짜
+    private String paymentMethod;  // 지불 방법
+    private String paymentMonth;   // 할부 개월수
+    private String gymProductId;   // 헬스장 상품 코드
 
-	public String getUserID() {
-		return userID;
-	}
+    // Constructors
+    public Payment() {
 
+    }
 
+    // Constructor 
+    public Payment(String userId, String paymentDate, String paymentMethod, String paymentMonth, String gymProductId) {
+        this.userId = userId;
+        this.paymentDate = paymentDate;
+        this.paymentMethod = paymentMethod;
+        this.paymentMonth = paymentMonth;
+        this.gymProductId = gymProductId;
+    }
 
-	public void setUserID(String userID) {
-		this.userID = userID;
-	}
+    // Getters and setters
 
+    public String getUserId() {
+        return userId;
+    }
 
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-	public String getGymProductId() {
-		return gymProductId;
-	}
+    public String getPaymentDate() {
+        return paymentDate;
+    }
 
+    public void setPaymentDate(String paymentDate) {
+        this.paymentDate = paymentDate;
+    }
 
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
 
-	public void setGymProductId(String gymProductId) {
-		this.gymProductId = gymProductId;
-	}
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
 
+    public String getPaymentMonth() {
+        return paymentMonth;
+    }
 
+    public void setPaymentMonth(String paymentMonth) {
+        this.paymentMonth = paymentMonth;
+    }
 
-	public String getPaymentId() {
-		return paymentId;
-	}
+    public String getGymProductId() {
+        return gymProductId;
+    }
 
-	public void setPaymentId(String paymentId) {
-		this.paymentId = paymentId;
-	}
+    public void setGymProductId(String gymProductId) {
+        this.gymProductId = gymProductId;
+    }
 
-	public Integer getPaymenyPrice() {
-		return paymenyPrice;
-	}
-
-	public void setPaymenyPrice(Integer paymenyPrice) {
-		this.paymenyPrice = paymenyPrice;
-	}
-
-	public String getPaymentDate() {
-		return paymentDate;
-	}
-
-	public void setPaymentDate(String paymentDate) {
-		this.paymentDate = paymentDate;
-	}
-
-	public String getPayWith() {
-		return payWith;
-	}
-
-	public void setPayWith(String payWith) {
-		this.payWith = payWith;
-	}
-	
-	
 }
