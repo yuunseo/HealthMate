@@ -1,6 +1,5 @@
-
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<meta charset="EUC-KR">
+<% request.setCharacterEncoding("utf-8"); %>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <nav class="navbar navbar-expand navbar-white bg-white custom-navbar-border">
     <div class="container">
         <a class="navbar-brand" href="welcome.jsp" style="color: #8E6FFF;">HealthMate</a>
@@ -14,7 +13,7 @@
                 </li>
                 <li class="nav-item">
 
-                    <a class="nav-link" href="./manageGym.jsp" style="color: #000000;">매장관리</a> 
+                    <a class="nav-link" href="./manageGym.jsp" style="color: #000000;">매장 관리</a> 
                 </li>
             </ul>
         </div>

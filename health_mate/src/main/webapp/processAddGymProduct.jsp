@@ -1,8 +1,10 @@
+<% request.setCharacterEncoding("utf-8"); %>
 <%@ page contentType="text/html; charset=UTF-8"%>
-
 <%@ page import="com.oreilly.servlet.*" %>
 <%@ page import="com.oreilly.servlet.multipart.*" %>
 <%@ page import="java.util.*" %>
+<%@ include file="dbconn.jsp" %>
+
 <%@ page import="dto.User"%>
 <%@ page import="dto.GymProduct"%>
 <%@ page import="dao.GymProductRepository"%>
@@ -43,17 +45,24 @@ Enumeration files = multi.getFileNames();
 String fname = (String)files.nextElement();
 String fileName = multi.getFilesystemName(fname);
 
-GymProductRepository dao = GymProductRepository.getInstance();
+PreparedStatement pstmt = null;
 
-GymProduct newGymProduct = new GymProduct();
-newGymProduct.setGymId(gymId);
-newGymProduct.setGymProductId(gymProductId);
-newGymProduct.setGymProductName(gymProductName);
-newGymProduct.setPeriod(Iperiod);
-newGymProduct.setUnitPrice(IunitPrice);
-newGymProduct.setFilename(fileName);
+// DB에 데이터 저장
+String sql = "insert into gymProduct values(?,?,?,?,?,?)";
+pstmt = conn.prepareStatement(sql);
+pstmt.setString(1,gymId);
+pstmt.setString(2,gymProductId);
+pstmt.setString(3,gymProductName);
+pstmt.setInt(4,Iperiod);
+pstmt.setInt(5,IunitPrice);
+pstmt.setString(6,fileName);
+pstmt.executeUpdate();
 
-dao.addGymProduct(newGymProduct);
+if(pstmt!=null)
+	pstmt.close();
+if(conn!=null)
+	conn.close();
+
 
 response.sendRedirect("manageGymProduct.jsp?id="+gymId);
 

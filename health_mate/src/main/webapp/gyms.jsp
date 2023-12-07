@@ -1,5 +1,5 @@
-<%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<%-- <%@ page contentType="text/html; charset=UTF-8"%> --%>
+<% request.setCharacterEncoding("utf-8"); %>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="dto.Gym"%>
@@ -14,40 +14,45 @@
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
 <style>
 .section-divider {
-	border-bottom: 2px dashed #a6a6a6; /* Á¡¼± ½ºÅ¸ÀÏ ¹× »ö»ó ¼³Á¤ */
-	margin-bottom: 10px; /* ´Ü¶ô °£°Ý Á¶ÀýÀ» À§ÇÑ ¿©ºÐÀÇ ¸¶Áø Ãß°¡ (¼±ÅÃ»çÇ×) */
+	border-bottom: 1px dashed #a6a6a6; /* ì ì„  ìŠ¤íƒ€ì¼ ë° ìƒ‰ìƒ ì„¤ì • */
+	margin-bottom: 10px; /* ë‹¨ë½ ê°„ê²© ì¡°ì ˆì„ ìœ„í•œ ì—¬ë¶„ì˜ ë§ˆì§„ ì¶”ê°€ (ì„ íƒì‚¬í•­) */
+	padding: 20px;	/* ì—¬ë°± */
 }
 
 .rounded-button {
-	border-radius: 50px; /* ¹öÆ°ÀÇ µÕ±Ù Á¤µµ¸¦ Á¶ÀýÇÒ ¼ö ÀÖ´Â °ª */
-	padding: 10px 20px; /* ¹öÆ°ÀÇ ³»¿ë°ú °æ°è »çÀÌÀÇ ¿©¹éÀ» ¼³Á¤ (¼±ÅÃ»çÇ×) */
-	/* Ãß°¡ÀûÀÎ ½ºÅ¸ÀÏ ¼³Á¤ (¼±ÅÃ»çÇ×) */
-	background-color: #8E6FFF; /* ¹è°æ»ö ¼³Á¤ */
-	color: #fff; /* ÅØ½ºÆ® »ö»ó ¼³Á¤ */
-	border: none; /* Å×µÎ¸® Á¦°Å */
-	cursor: pointer; /* ¸¶¿ì½º Ä¿¼­¸¦ Æ÷ÀÎÅÍ·Î º¯°æ */
+	border-radius: 50px; /* ë²„íŠ¼ì˜ ë‘¥ê·¼ ì •ë„ë¥¼ ì¡°ì ˆí•  ìˆ˜ ìžˆëŠ” ê°’ */
+	padding: 10px 20px; /* ë²„íŠ¼ì˜ ë‚´ìš©ê³¼ ê²½ê³„ ì‚¬ì´ì˜ ì—¬ë°±ì„ ì„¤ì • (ì„ íƒì‚¬í•­) */
+	/* ì¶”ê°€ì ì¸ ìŠ¤íƒ€ì¼ ì„¤ì • (ì„ íƒì‚¬í•­) */
+	background-color: #8E6FFF; /* ë°°ê²½ìƒ‰ ì„¤ì • */
+	color: #fff; /* í…ìŠ¤íŠ¸ ìƒ‰ìƒ ì„¤ì • */
+	border: none; /* í…Œë‘ë¦¬ ì œê±° */
+	cursor: pointer; /* ë§ˆìš°ìŠ¤ ì»¤ì„œë¥¼ í¬ì¸í„°ë¡œ ë³€ê²½ */
 }
 
 .display1 {
-	margin-top: 80px; /* ¿øÇÏ´Â ¸¸Å­ÀÇ À§ÂÊ ¸¶ÁøÀ» ÁöÁ¤ÇÕ´Ï´Ù. */
-	margin-bottom: 5px; /* ¿øÇÏ´Â ¸¸Å­ÀÇ ¾Æ·¡ÂÊ ¸¶ÁøÀ» ÁöÁ¤ÇÕ´Ï´Ù. */
+	margin-top: 80px; /* ì›í•˜ëŠ” ë§Œí¼ì˜ ìœ„ìª½ ë§ˆì§„ì„ ì§€ì •í•©ë‹ˆë‹¤. */
+	margin-bottom: 5px; /* ì›í•˜ëŠ” ë§Œí¼ì˜ ì•„ëž˜ìª½ ë§ˆì§„ì„ ì§€ì •í•©ë‹ˆë‹¤. */
 	font-size: 20px;
-	font-weight: bold; /* ±½°Ô ÁöÁ¤ */
+	font-weight: bold; /* êµµê²Œ ì§€ì • */
 }
 
 .bottom_1 {
-	margin-bottom: 50px; /* ¿øÇÏ´Â ¸¸Å­ÀÇ ¾Æ·¡ÂÊ ¸¶ÁøÀ» ÁöÁ¤ÇÕ´Ï´Ù. */
-	color: #808080; /* ÅØ½ºÆ® »ö»ó ¼³Á¤ */
+	margin-bottom: 50px; /* ì›í•˜ëŠ” ë§Œí¼ì˜ ì•„ëž˜ìª½ ë§ˆì§„ì„ ì§€ì •í•©ë‹ˆë‹¤. */
+	color: #808080; /* í…ìŠ¤íŠ¸ ìƒ‰ìƒ ì„¤ì • */
+}
+
+.section-container {
+	align-items: center;
+	column-gap: 10px;
 }
 </style>
-<meta charset="EUC-KR">
-<title>Çï½ºÀå ¸ñ·Ï</title>
+<title>í—¬ìŠ¤ìž¥ ëª©ë¡</title>
 </head>
 <body>
 	<jsp:include page="menu.jsp" />
 	<div class="container">
-		<p class="display1">Çï½ºÀå Á¶È¸
-		<p class="bottom_1">ÇöÀç µî·ÏµÈ Çï½ºÀå ¸ñ·ÏÀ» Á¶È¸ÇÒ ¼ö ÀÖ½À´Ï´Ù.
+		<p class="display1">í—¬ìŠ¤ìž¥ ì¡°íšŒ
+		<p class="bottom_1">í˜„ìž¬ ë“±ë¡ëœ í—¬ìŠ¤ìž¥ ëª©ë¡ì„ ì¡°íšŒí•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 	</div>
 	<%-- 	<%
 	GymRepository gymDao = GymRepository.getInstance();
@@ -59,74 +64,58 @@
 	<br>
 	<div class="container">
 		<div class="col" align="left">
-			<%-- 			<%
-				for(int i=0; i<listOfGyms.size(); i++){
-					Gym gym = listOfGyms.get(i);
-			%> --%>
 			<%@ include file="dbconn.jsp"%>
 			<%
+			// DBì—ì„œ í—¬ìŠ¤ìž¥ ë°ì´í„° ê°€ì ¸ì˜¤ê¸°
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
-			String sql = "select * from gym";
+			String sql = "select * from gym";	
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 			%>
 			<div class="section-divider">
-				<div class="row">
+				<div class="row section-container">
 					<div>
 						<img src="./upload/<%=rs.getString("g_fileName")%>" width="200"
 							style="height: auto;">
-						<%-- <img src="./resources/images/<%=gym.getFilename() %>" width="200" style="height:auto;"> --%>
 					</div>
 					<div class="col">
-						<%-- <h3><%=gym.getGymName()%></h3>
-						<p><%=gym.getGymInfo()%>
-							<%
-							for (int j = 0; j < listOfGymProducts.size(); j++) {
-								if (listOfGymProducts.get(j).getGymId().equals(gym.getGymId())) {
-									GymProduct product = listOfGymProducts.get(j);
-							%> --%>
 
 						<h3><%=rs.getString("g_name")%></h3>
 						<p><%=rs.getString("g_info")%>
-							<%
+						<p>ì£¼ì†Œ | <%=rs.getString("g_address")%>
+						<p>ìš´ì˜ì‹œê°„ | <%=rs.getString("g_time")%>
+							<%-- <%
+							// DBì—ì„œ ê° í—¬ìŠ¤ìž¥ë³„ ìƒí’ˆ ë°ì´í„° ê°€ì ¸ì˜¤ê¸°
 							PreparedStatement pstmt2 = null;
 							ResultSet rs2 = null;
 							String sql2 = "select * from gymProduct where g_id='" + rs.getString("g_id") + "'";
 							pstmt2 = conn.prepareStatement(sql2);
 							rs2 = pstmt2.executeQuery();
-							if (rs2.next()) {
+							while (rs2.next()) {	
 							%>
 						
 						<div class="row-md-4">
 							<br>
 							<h6>
-								<%-- 								<%=product.getGymProductName()%>
-								|
-								<%=product.getUnitPrice()%>¿ø --%>
 								<%=rs2.getString("gp_name")%>
 								|
-								<%=rs2.getString("gp_price")%>¿ø
+								<%=rs2.getString("gp_price")%>ì›
 							</h6>
 						</div>
 						<%
 						}
-						%>
-
-						<%-- 						<%
-						}
-
-						}
 						%> --%>
 					</div>
-				</div>
+				
 
 				<div align="right">
 					<p>
 						<a href="./gym.jsp?id=<%=rs.getString("g_id")%>"
-							class="btn rounded-button ml-auto" role="button">»ó¼¼ Á¤º¸
+							class="btn rounded-button ml-auto" role="button">ìƒì„¸ ì •ë³´
 							&raquo;</a>
+				</div>
 				</div>
 			</div>
 			<%

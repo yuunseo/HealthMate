@@ -1,5 +1,5 @@
-<%-- <%@ page contentType="text/html; charset=UTF-8"%> --%>
-<%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<% request.setCharacterEncoding("utf-8"); %>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%
 Connection conn = null;
@@ -14,7 +14,7 @@ Class.forName("com.mysql.jdbc.Driver");
 conn=DriverManager.getConnection(url, user, password);
 
 } catch(SQLException ex) {
-out.println("µ¥ÀÌÅÍº£ÀÌ½º ¿¬°áÀÌ ½ÇÆÐÇß½À´Ï´Ù.<br>");
+out.println("ë°ì´í„°ë² ì´ìŠ¤ ì—°ê²°ì´ ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.<br>");
 out.println("SQLException: "+ex.getMessage());
 }
 %>

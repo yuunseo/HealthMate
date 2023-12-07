@@ -1,21 +1,16 @@
-<%-- <%@ page contentType="text/html; charset=UTF-8"%> --%>
-<%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-
+<% request.setCharacterEncoding("utf-8"); %>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="com.oreilly.servlet.*" %>
 <%@ page import="com.oreilly.servlet.multipart.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <%@ include file="dbconn.jsp" %>
-<%@ page import="dto.User"%>
-<%-- 
-<%@ page import="dto.Gym"%>
-<%@ page import="dao.GymRepository"%> --%>
 
 <%
 request.setCharacterEncoding("UTF-8");
+response.setContentType("text/html; charset=UTF-8");
 
-User userSession = (User) session.getAttribute("user");
-String ownerId = userSession.getUserID(); //로그인된 회원아이디 받아오기
+String ownerId = (String) session.getAttribute("sessionID"); //로그인된 회원아이디 받아오기
 
 String filename = "";
 String realFolder = application.getRealPath("/upload");	//절대 경로

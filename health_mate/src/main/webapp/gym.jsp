@@ -1,5 +1,5 @@
-
-<%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<% request.setCharacterEncoding("utf-8"); %>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="dto.Gym" %>
 <%@ page import="dto.GymProduct" %>

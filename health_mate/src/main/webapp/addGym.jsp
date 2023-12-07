@@ -1,5 +1,5 @@
-
-<%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>%>
+<% request.setCharacterEncoding("utf-8"); %>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css">

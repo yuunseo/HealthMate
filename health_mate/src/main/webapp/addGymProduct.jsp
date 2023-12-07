@@ -1,5 +1,5 @@
-
-<%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<% request.setCharacterEncoding("utf-8"); %>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
@@ -23,7 +23,7 @@
 			<div class="form-group row">
 				<label class="col-sm-2">상품명</label>
 				<div class="col-sm-3">
-					<input type="text" id="gymName" name="gymName" class="form-control">
+					<input type="text" id="gymProductName" name="gymProductName" class="form-control">
 				</div>
 			</div>
 			<div class="form-group row">

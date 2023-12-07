@@ -1,5 +1,5 @@
-
-<%@ page contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<% request.setCharacterEncoding("utf-8"); %>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -20,7 +20,7 @@
             <h4 class="alert-heading">로그인 실패</h4>
             <p>ID 혹은 비밀번호가 틀렸습니다.</p>
             <hr>
-            <p class="mb-0">로그인을 다시 시도하거나 계정이 없을 시 <a href="register.jsp">회원가입</a>해주세요.</p>
+            <p class="mb-0"><a href="login.jsp">로그인</a>을 다시 시도하거나 계정이 없을 시 <a href="register.jsp">회원가입</a>해주세요.</p>
         </div>
     </div>
 
